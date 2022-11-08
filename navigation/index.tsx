@@ -77,18 +77,18 @@ function BottomTabNavigator() {
             height: 110,
           },
           headerRight: () => (
-            // <Pressable
-            //   onPress={() => navigation.navigate('Modal')}
-            //   style={({ pressed }) => ({
-            //     opacity: pressed ? 0.5 : 1,
-            //   })}>
+            <Pressable
+              onPress={() => navigation.navigate('Modal')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
               <FontAwesome
                 name="bell"
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15, backgroundColor: 'D9D9D9', borderRadius: 20, padding: 7, overflow: 'hidden' }}
               />
-            // </Pressable>
+            </Pressable>
             
           ),
         })}
