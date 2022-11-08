@@ -14,10 +14,14 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import TabOneScreen from '../screens/Home';
+import TabTwoScreen from '../screens/Devices';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import Home from '../assets/icons/Home';
+import Devices from '../screens/Devices';
+import Guides from '../screens/Guides';
+import Services from '../screens/Services';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -61,35 +65,107 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarStyle: {height: 90}
       }}>
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Dashboard',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          headerStyle: {
+            height: 110,
+          },
           headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
+            // <Pressable
+            //   onPress={() => navigation.navigate('Modal')}
+            //   style={({ pressed }) => ({
+            //     opacity: pressed ? 0.5 : 1,
+            //   })}>
               <FontAwesome
-                name="info-circle"
+                name="bell"
                 size={25}
                 color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
+                style={{ marginRight: 15, backgroundColor: 'D9D9D9', borderRadius: 20, padding: 7, overflow: 'hidden' }}
               />
-            </Pressable>
+            // </Pressable>
+            
           ),
         })}
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={Devices}
         options={{
-          title: 'Tab Two',
+          title: 'Devices',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        
+          headerStyle: {
+            height: 110,
+          },
+          headerRight: () => (
+            // <Pressable
+            //   onPress={() => navigation.navigate('Modal')}
+            //   style={({ pressed }) => ({
+            //     opacity: pressed ? 0.5 : 1,
+            //   })}>
+              <FontAwesome
+                name="bell"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15, backgroundColor: 'D9D9D9', borderRadius: 20, padding: 7, overflow: 'hidden' }}
+              />
+            // </Pressable>
+          ),}}
+      />
+      <BottomTab.Screen
+        name="TabThree"
+        component={Guides}
+        options={{
+          title: 'Guides',
+          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+          headerStyle: {
+            height: 110,
+          },
+          headerRight: () => (
+            // <Pressable
+            //   onPress={() => navigation.navigate('Modal')}
+            //   style={({ pressed }) => ({
+            //     opacity: pressed ? 0.5 : 1,
+            //   })}>
+              <FontAwesome
+                name="bell"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15, backgroundColor: 'D9D9D9', borderRadius: 20, padding: 7, overflow: 'hidden' }}
+              />
+            // </Pressable>
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="TabFour"
+        component={Services}
+        options={{
+          title: 'Services',
+          tabBarIcon: ({ color }) => <TabBarIcon name="recycle" color={color} />,
+          headerStyle: {
+            height: 110,
+          },
+          headerRight: () => (
+            // <Pressable
+            //   onPress={() => navigation.navigate('Modal')}
+            //   style={({ pressed }) => ({
+            //     opacity: pressed ? 0.5 : 1,
+            //   })}>
+              <FontAwesome
+                name="bell"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15, backgroundColor: 'D9D9D9', borderRadius: 20, padding: 7, overflow: 'hidden' }}
+              />
+            // </Pressable>
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -105,3 +181,4 @@ function TabBarIcon(props: {
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
+
