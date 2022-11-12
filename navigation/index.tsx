@@ -19,7 +19,7 @@ import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Home";
-import TabTwoScreen from "../screens/Devices";
+
 import {
   RootStackParamList,
   RootTabParamList,
@@ -30,6 +30,7 @@ import Home from "../assets/icons/Home";
 import Devices from "../screens/Devices";
 import Guides from "../screens/Guides";
 import Services from "../screens/Services";
+import { LoginNavigator } from "./LoginNavigator";
 
 export default function Navigation({
   colorScheme,
@@ -55,6 +56,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
+      {/** add in login navigator (Stack) as a Stack.Screen */}
+      {/* <Stack.Screen
+        name="login_flow"
+        component={LoginNavigator}
+        options={{ headerShown: false }}
+      /> */}
       <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
@@ -156,7 +163,11 @@ function BottomTabNavigator() {
         options={{
           title: "Devices",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-
+          header: () => (
+            <View
+              style={{ backgroundColor: "red", width: 10, height: 10 }}
+            ></View>
+          ),
           headerStyle: {
             height: 110,
           },
