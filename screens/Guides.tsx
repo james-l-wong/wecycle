@@ -105,10 +105,12 @@ const Example = () => {
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+    <View style={[styles.container, styles.bottomMargin]}>
+      <View style={[styles.separator, styles.bottomMargin]} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
       <Example />
+      {/* <Example />
+      <Example /> */}
     </View>
   );
 }
@@ -127,5 +129,8 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+  },
+  bottomMargin: {
+    marginBottom: 800,
   },
 });
