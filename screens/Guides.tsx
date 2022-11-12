@@ -15,12 +15,12 @@ import {
   Stack,
   Box,
   Heading,
-  Text,
+  Text as NativeBaseText,
   Image,
 } from 'native-base';
 
 import EditScreenInfo from '../components/EditScreenInfo';
-import { View } from '../components/Themed';
+import { Text, View } from '../components/Themed';
 
 const Example = () => {
   return (
@@ -43,6 +43,7 @@ const Example = () => {
           backgroundColor: "gray.50"
         }}
       >
+        <Text style={styles.title}>Guides</Text>
         <Box>
           <AspectRatio w="100%" ratio={16 / 9}>
             <Image
@@ -69,7 +70,7 @@ const Example = () => {
             <Heading size="md" ml="-1">
               The Garden City
             </Heading>
-            <Text
+            <NativeBaseText
               fontSize="xs"
               _light={{
                 color: "violet.500"
@@ -78,22 +79,22 @@ const Example = () => {
               }} fontWeight="500" ml="-0.5" mt="-1"
             >
               The Silicon Valley of India.
-            </Text>
+            </NativeBaseText>
           </Stack>
-          <Text fontWeight="400">
+          <NativeBaseText fontWeight="400">
             Bengaluru (also called Bangalore) is the center of India's high-tech
             industry. The city is also known for its parks and nightlife.
-          </Text>
+          </NativeBaseText>
           <HStack alignItems="center" space={4} justifyContent="space-between">
             <HStack alignItems="center">
-              <Text
+              <NativeBaseText
                 color="coolGray.600"
                 _dark={{
                   color: "warmGray.200"
                 }} fontWeight="400"
               >
                 6 mins ago
-              </Text>
+              </NativeBaseText>
             </HStack>
           </HStack>
         </Stack>
@@ -105,7 +106,6 @@ const Example = () => {
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Guides</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
       <Example />
