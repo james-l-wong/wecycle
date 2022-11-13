@@ -160,17 +160,12 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="TabTwo"
         component={Devices}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
+        options={({ navigation }: RootTabScreenProps<"TabTwo">) => ({
           title: "Devices",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerStyle: {
             height: 110,
           },
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          header: () => (
-            <View
-              style={{ backgroundColor: "red", width: 10, height: 10 }}
-            ></View>
-          ),
           headerRight: () => (
             <View
               style={{
