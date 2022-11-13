@@ -160,17 +160,17 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="TabTwo"
         component={Devices}
-        options={{
+        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Devices",
+          headerStyle: {
+            height: 110,
+          },
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           header: () => (
             <View
               style={{ backgroundColor: "red", width: 10, height: 10 }}
             ></View>
           ),
-          headerStyle: {
-            height: 110,
-          },
           headerRight: () => (
             <View
               style={{
@@ -220,12 +220,12 @@ function BottomTabNavigator() {
               </Pressable>
             </View>
           ),
-        }}
+        })}
       />
       <BottomTab.Screen
         name="TabThree"
         component={Guides}
-        options={{
+        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Guides",
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
           headerStyle: {
@@ -280,12 +280,12 @@ function BottomTabNavigator() {
               </Pressable>
             </View>
           ),
-        }}
+        })}
       />
       <BottomTab.Screen
         name="TabFour"
         component={Services}
-        options={{
+        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Services",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="recycle" color={color} />
@@ -342,7 +342,7 @@ function BottomTabNavigator() {
               </Pressable>
             </View>
           ),
-        }}
+        })}
       />
     </BottomTab.Navigator>
   );
