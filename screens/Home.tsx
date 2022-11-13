@@ -1,15 +1,41 @@
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { Dimensions, StyleSheet } from "react-native";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { Text, View } from "../components/Themed";
+import { RootTabScreenProps } from "../types";
+import Carousel from "react-native-reanimated-carousel";
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function TabOneScreen({
+  navigation,
+}: RootTabScreenProps<"TabOne">) {
+  const width = Dimensions.get("window").width;
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <View
+        style={styles.separator}
+        lightColor="#eee"
+        darkColor="rgba(255,255,255,0.1)"
+      />
+      {/* <Carousel
+        loop
+        width={width}
+        height={width / 2}
+        data={[...new Array(6).keys()]}
+        scrollAnimationDuration={1000}
+        onSnapToItem={(index) => {}}
+        renderItem={({ index }) => (
+          <View
+            style={{
+              flex: 1,
+              borderWidth: 1,
+              justifyContent: "center",
+            }}
+          >
+            <Text style={{ textAlign: "center", fontSize: 30 }}>{index}</Text>
+          </View>
+        )}
+      /> */}
     </View>
   );
 }
@@ -17,16 +43,16 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });
