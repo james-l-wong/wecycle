@@ -5,6 +5,11 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { View } from '../components/Themed';
 import GuideCard from '../components/GuideCard';
 
+/**
+ * TODO: Multiple guides should be readable and shareable
+ * TODO: Once guide card is finalised, send to James
+ */
+
 export default function TabTwoScreen() {
   return (
     <ScrollView contentContainerStyle={[styles.container]}>
