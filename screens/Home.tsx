@@ -5,6 +5,7 @@ import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import Carousel from "react-native-reanimated-carousel";
 import DeviceTile from "../components/DeviceTile";
+import { Button } from "native-base";
 
 export default function TabOneScreen({
   navigation,
