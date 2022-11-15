@@ -2,9 +2,10 @@ import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import MenuButton from './Account/MenuButton';
+import EditScreenInfo from '../../components/EditScreenInfo';
+import { Text, View } from '../../components/Themed';
+import MenuButton from './MenuButton';
+import PointsDisplay from '../../components/PointsDisplay';
 
 function ProfileImage() {
   return (
@@ -23,7 +24,7 @@ function ProfileImage() {
   )
 }
 
-export default function ModalScreen({navigation}) {
+export default function Account({navigation, points, vouchers}) {
   const Buttons = () => (
     <View>
       <MenuButton
@@ -50,6 +51,7 @@ export default function ModalScreen({navigation}) {
   );
   return (
       <View style={styles.container}>
+        <PointsDisplay points={0} vouchers={0} />
         <View style={styles.info}>
           <ProfileImage/>
           <View style={styles.infotext}>
@@ -68,15 +70,14 @@ export default function ModalScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
   },
   separator: {
-    marginVertical: 30,
+    marginVertical: 50,
     height: 1,
     width: '80%',
   },
@@ -100,7 +101,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginRight: 40
+    marginRight: 40,
+    paddingTop: 50
   },
   infotext: {
     flexDirection: 'column',

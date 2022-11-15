@@ -6,6 +6,7 @@ import { RootTabScreenProps } from "../types";
 import Carousel from "react-native-reanimated-carousel";
 import DeviceTile from "../components/DeviceTile";
 import { Button } from "native-base";
+import PointsDisplay from "../components/PointsDisplay";
 
 export default function TabOneScreen({
   navigation,
@@ -13,6 +14,7 @@ export default function TabOneScreen({
   const width = Dimensions.get("window").width;
   return (
     <View style={styles.container}>
+      <PointsDisplay points={0} vouchers={0} />
       <Text style={styles.title}>Pending Devices</Text>
       <Carousel
         style={{ marginLeft: 20, width: width, overflow: "visible" }}
