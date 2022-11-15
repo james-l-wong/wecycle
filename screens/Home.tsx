@@ -15,19 +15,14 @@ export default function TabOneScreen({
     <View style={styles.container}>
       <Text style={styles.title}>Pending Devices</Text>
       <Carousel
-        style={{ marginLeft: 20 }}
+        style={{ marginLeft: 20, width: width, overflow: "visible" }}
         loop={false}
-        width={width}
+        width={145}
         height={150}
-        data={["iPhone", "Fridge", 3]}
-        scrollAnimationDuration={1000}
-        // onSnapToItem={(index) => {}}
-        renderItem={(item) => (
-          <>
-            {console.log(item)}
-            {/* <DeviceTile title={index} /> */}
-          </>
-        )}
+        data={["Add", "iPhone", "fridge"]}
+        scrollAnimationDuration={500}
+        onSnapToItem={(index) => {}}
+        renderItem={(array) => <DeviceTile title={array.item} />}
       />
       <Text style={styles.title}>Guides</Text>
     </View>
