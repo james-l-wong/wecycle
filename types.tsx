@@ -21,7 +21,7 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   login_flow: undefined;
-  DeviceDetails: undefined;
+  DeviceDetails: { test: string };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

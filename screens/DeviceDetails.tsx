@@ -1,8 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import { flexbox } from "native-base/lib/typescript/theme/styled-system";
 import { StyleSheet, Image } from "react-native";
 import { Text, View } from "../components/Themed";
 
-export default function TabTwoScreen() {
+export default function TabTwoScreen({ route }: { route: any }) {
+  console.log(route.params.test);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Device Information</Text>
@@ -30,7 +33,11 @@ export default function TabTwoScreen() {
         <View style={{ backgroundColor: "#F8F8F8" }}>
           <View style={{ backgroundColor: "#F8F8F8" }}>
             <Text style={styles.text}>Device Name: Apple</Text>
-            <Text style={styles.text}>Model: iPhone 14 Pro</Text>
+            <Text style={styles.text}>
+              Model:
+              {/* {JSON.stringify(test)} */}
+              14 Pro
+            </Text>
             <Text style={styles.text}>Age: 2 years 4 months</Text>
             <Text style={styles.text}>Condition: Fully Functioning</Text>
           </View>

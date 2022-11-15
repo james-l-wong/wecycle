@@ -2,7 +2,6 @@ import React from "react";
 import { Pressable, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Text, View } from "../components/Themed";
-import { RootTabScreenProps } from "../types";
 import AddIcon from "../assets/icons/Add";
 
 export default function DeviceTile({ title }: { title: string }) {
@@ -12,13 +11,11 @@ export default function DeviceTile({ title }: { title: string }) {
       <View style={[title === "Add" ? styles.addContainer : styles.container]}>
         <Pressable
           onPress={() => {
-            navigation.navigate("DeviceDetails");
-            console.log("hihi");
+            navigation.navigate("DeviceDetails", { test: "peepeepoopoo" });
           }}
         >
           {title === "Add" ? (
             <>
-              {console.log("add")}
               <AddIcon />
             </>
           ) : title === "iPhone" ? (
