@@ -4,6 +4,7 @@ import { Dimensions, StyleSheet } from "react-native";
 import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import Carousel from "react-native-reanimated-carousel";
+import DeviceTile from "../components/DeviceTile";
 
 export default function TabOneScreen({
   navigation,
@@ -11,31 +12,23 @@ export default function TabOneScreen({
   const width = Dimensions.get("window").width;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Dashboard</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      {/* <Carousel
-        loop
+      <Text style={styles.title}>Pending Devices</Text>
+      <Carousel
+        style={{ marginLeft: 20 }}
+        loop={false}
         width={width}
-        height={width / 2}
-        data={[...new Array(6).keys()]}
+        height={150}
+        data={["iPhone", "Fridge", 3]}
         scrollAnimationDuration={1000}
-        onSnapToItem={(index) => {}}
-        renderItem={({ index }) => (
-          <View
-            style={{
-              flex: 1,
-              borderWidth: 1,
-              justifyContent: "center",
-            }}
-          >
-            <Text style={{ textAlign: "center", fontSize: 30 }}>{index}</Text>
-          </View>
+        // onSnapToItem={(index) => {}}
+        renderItem={(item) => (
+          <>
+            {console.log(item)}
+            {/* <DeviceTile title={index} /> */}
+          </>
         )}
-      /> */}
+      />
+      <Text style={styles.title}>Guides</Text>
     </View>
   );
 }
@@ -43,16 +36,14 @@ export default function TabOneScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+    marginTop: 20,
+    marginBottom: 10,
+    marginLeft: 20,
   },
 });
