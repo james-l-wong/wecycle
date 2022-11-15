@@ -34,6 +34,7 @@ import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
 import Vouchers from "../screens/Account/Vouchers";
 import Settings from "../screens/Account/Settings";
+import DeviceDetails from "../screens/DeviceDetails";
 
 export default function Navigation({
   colorScheme,
@@ -72,8 +73,8 @@ function RootNavigator() {
       />
       <Stack.Screen
         name="DeviceDetails"
-        component={DeviceNavigator}
-        options={{ headerShown: false }}
+        component={DeviceDetails}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="NotFound"
