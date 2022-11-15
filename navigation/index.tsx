@@ -31,6 +31,7 @@ import Devices from "../screens/Devices";
 import Guides from "../screens/Guides";
 import Services from "../screens/Services";
 import { LoginNavigator } from "./LoginNavigator";
+import { DeviceNavigator } from "./DeviceNavigator";
 
 export default function Navigation({
   colorScheme,
@@ -63,8 +64,13 @@ function RootNavigator() {
         options={{ headerShown: false }}
       /> */}
       <Stack.Screen
-        name="Root"
+        name="Home"
         component={BottomTabNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="DeviceDetails"
+        component={DeviceNavigator}
         options={{ headerShown: false }}
       />
       <Stack.Screen
