@@ -22,6 +22,8 @@ export type RootStackParamList = {
   NotFound: undefined;
   login_flow: undefined;
   DeviceDetails: undefined;
+  Vouchers: undefined;
+  Settings: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

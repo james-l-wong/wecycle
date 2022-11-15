@@ -32,6 +32,8 @@ import Guides from "../screens/Guides";
 import Services from "../screens/Services";
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
+import Vouchers from "../screens/Account/Vouchers";
+import Settings from "../screens/Account/Settings";
 
 export default function Navigation({
   colorScheme,
@@ -80,6 +82,12 @@ function RootNavigator() {
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
+      </Stack.Group>
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="Vouchers" component={Vouchers} />
+      </Stack.Group>
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Group>
     </Stack.Navigator>
   );
