@@ -84,7 +84,6 @@ export default function Vouchers({route, navigation}) {
           style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
           onPress={()=> {
             navigation.navigate("Voucher Barcode", {
-              id: id,
               Logo: Logo,
               cost: cost
             });
