@@ -1,12 +1,15 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, LogBox } from 'react-native';
 import { useEffect, useState } from 'react';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import MenuButton from './MenuButton';
 import PointsDisplay from '../../components/PointsDisplay';
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 function ProfileImage() {
   return (
