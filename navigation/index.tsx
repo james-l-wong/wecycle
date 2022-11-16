@@ -1,5 +1,5 @@
 /**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
+ * If you are not familiar with React Navigation, refer to the "Fundamentals" guide
  * https://reactnavigation.org/docs/getting-started
  *
  */
@@ -16,7 +16,7 @@ import { ColorSchemeName, Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/ModalScreen";
+import ModalScreen from "../screens/Profile";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Home";
 
@@ -31,6 +31,10 @@ import Devices from "../screens/Devices";
 import Guides from "../screens/Guides";
 import Services from "../screens/Services";
 import { LoginNavigator } from "./LoginNavigator";
+import { DeviceNavigator } from "./DeviceNavigator";
+import Vouchers from "../screens/Account/Vouchers";
+import Settings from "../screens/Account/Settings";
+import DeviceDetails from "../screens/DeviceDetails";
 
 export default function Navigation({
   colorScheme,
@@ -63,18 +67,39 @@ function RootNavigator() {
         options={{ headerShown: false }}
       /> */}
       <Stack.Screen
-        name="Root"
+        name="Home"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="DeviceDetails"
+        component={DeviceDetails}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="Vouchers"
+        component={Vouchers}
+        options={{ headerShown: true }}
+      />
+      <Stack.Group>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+      {/* <Stack.Group>
+        <Stack.Screen name="Vouchers" component={Vouchers} />
+      </Stack.Group>
+      <Stack.Group>
+        <Stack.Screen name="Settings" component={Settings} />
+      </Stack.Group> */}
     </Stack.Navigator>
   );
 }
@@ -160,17 +185,12 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="TabTwo"
         component={Devices}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
+        options={({ navigation }: RootTabScreenProps<"TabTwo">) => ({
           title: "Devices",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerStyle: {
             height: 110,
           },
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          header: () => (
-            <View
-              style={{ backgroundColor: "red", width: 10, height: 10 }}
-            ></View>
-          ),
           headerRight: () => (
             <View
               style={{
