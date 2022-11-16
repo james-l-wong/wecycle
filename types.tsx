@@ -23,6 +23,7 @@ export type RootStackParamList = {
   login_flow: undefined;
   DeviceDetails: undefined;
   Vouchers: undefined;
+  Barcode: undefined;
   Settings: undefined;
 };
 

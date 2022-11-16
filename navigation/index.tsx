@@ -33,6 +33,7 @@ import Services from "../screens/Services";
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
 import Vouchers from "../screens/Account/Vouchers";
+import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 
 export default function Navigation({
@@ -85,6 +86,9 @@ function RootNavigator() {
       </Stack.Group>
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Vouchers" component={Vouchers} />
+      </Stack.Group>
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="Voucher Barcode" component={Barcode} />
       </Stack.Group>
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Settings" component={Settings} />

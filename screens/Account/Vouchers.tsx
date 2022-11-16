@@ -14,13 +14,13 @@ export default function Vouchers({route, navigation}) {
     setVoucherList(vList);
     setRedeemList(rList);
   });
-  
+
   function RedeemItem({id, Logo, cost, pts}) {
     return (
       <>
       <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
         <Logo/>
-        <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
+        <Text style={{fontSize: 30, fontWeight: "bold", width: 60, textAlign: "center"}}>${cost}</Text>
         <View style={{alignItems: "center"}}>
           <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
           <TouchableOpacity
@@ -42,13 +42,22 @@ export default function Vouchers({route, navigation}) {
     )
   }
   
-  function VoucherItem({Logo, cost}) {
+  function VoucherItem({Logo, cost, id}) {
     return (
       <>
       <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
         <Logo/>
-        <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
-        <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
+        <Text style={{fontSize: 30, fontWeight: "bold", width: 60, textAlign: "center"}}>${cost}</Text>
+        <TouchableOpacity
+          style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
+          onPress={()=> {
+            navigation.navigate("Voucher Barcode", {
+              id: id,
+              Logo: Logo,
+              cost: cost
+            });
+          }}
+        >
           <Image
             style={{width: 45, height: 45}}
             source={require("../../assets/images/barcodeicon.png")}
@@ -77,7 +86,7 @@ export default function Vouchers({route, navigation}) {
       <>
         {vList.map((item, id) => {
           return (
-            <VoucherItem key={id} Logo={item.pic} cost={item.cost} />
+            <VoucherItem key={id} Logo={item.pic} cost={item.cost} id={item.id} />
           )
         })}
       </>
