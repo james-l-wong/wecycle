@@ -46,7 +46,7 @@ function RedeemItem({Logo, cost, pts}) {
     <>
     <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
       <Logo/>
-      <Text style={{fontSize: 30, fontWeight: "bold"}}>{cost}</Text>
+      <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
       <View style={{alignItems: "center"}}>
         <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
         <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 80, height: 30, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
@@ -62,9 +62,9 @@ function RedeemItem({Logo, cost, pts}) {
 function RedeemView() {
   return (
     <>
-    <RedeemItem Logo={ColesLogo} cost={"$5"} pts={1000} />
-    <RedeemItem Logo={WoolLogo} cost={"$5"} pts={1000} />
-    <RedeemItem Logo={OfficeLogo} cost={"$15"} pts={2000} />
+    <RedeemItem Logo={ColesLogo} cost={5} pts={1000} />
+    <RedeemItem Logo={WoolLogo} cost={5} pts={1000} />
+    <RedeemItem Logo={OfficeLogo} cost={15} pts={2000} />
     </>
   )
 }
@@ -74,7 +74,7 @@ function VoucherItem({Logo, cost}) {
     <>
     <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
       <Logo/>
-      <Text style={{fontSize: 30, fontWeight: "bold"}}>{cost}</Text>
+      <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
       <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
         <Image
           style={{width: 32, height: 32}}
@@ -90,13 +90,16 @@ function VoucherItem({Logo, cost}) {
 function VoucherView() {
   return (
     <View>
-      <VoucherItem Logo={MyerLogo} cost={"$25"} />
+      <VoucherItem Logo={MyerLogo} cost={25} />
     </View>
   )
 }
 
-export default function Vouchers({points, vouchers, onRedeem}) {
+export default function Vouchers({points, vouchers, onRedeem, redeemList, setRedeemList, voucherList, setVoucherList}) {
   const [showView1, setShowView1] = useState(true);
+  // const [redeemList, setRedeemList] = useState({});
+  // const [voucherList, setVoucherList] = useState({});
+
   return (
     <View style={{height: "100%"}}>
       <PointsDisplay points={0} vouchers={0} />
