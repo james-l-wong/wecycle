@@ -16,7 +16,7 @@ import { ColorSchemeName, Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/Profile";
+import Account from "../screens/Account/Account";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Home";
 
@@ -33,6 +33,7 @@ import Services from "../screens/Services";
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
 import Vouchers from "../screens/Account/Vouchers";
+import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
 
@@ -92,14 +93,18 @@ function RootNavigator() {
         options={{ headerShown: true }}
       />
       <Stack.Group>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="Account" component={Account} />
       </Stack.Group>
       {/* <Stack.Group>
         <Stack.Screen name="Vouchers" component={Vouchers} />
       </Stack.Group>
-      <Stack.Group>
+      <Stack.Group> */}
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="Voucher Barcode" component={Barcode} />
+      </Stack.Group>
+      {/* <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Settings" component={Settings} />
-      </Stack.Group> */}
+      </Stack.Group>  */}
     </Stack.Navigator>
   );
 }
@@ -112,6 +117,8 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  const [points, setPoints] = React.useState(0);
+  const [vouchers, setVouchers] = React.useState(0);
 
   return (
     <BottomTab.Navigator
@@ -123,7 +130,14 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        // component={TabOneScreen}
+        children={() => (
+          <TabOneScreen
+            navigation={RootTabScreenProps<"TabOne">}
+            points={points}
+            vouchers={vouchers}
+          />
+        )}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Dashboard",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
@@ -139,7 +153,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -160,7 +174,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -199,7 +213,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -220,7 +234,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -259,7 +273,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -280,7 +294,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -321,7 +335,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -342,7 +356,7 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
