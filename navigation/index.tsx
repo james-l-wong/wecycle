@@ -16,7 +16,7 @@ import { ColorSchemeName, Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/ModalScreen";
+import ModalScreen from "../screens/Profile";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Home";
 
@@ -81,15 +81,25 @@ function RootNavigator() {
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="Vouchers"
+        component={Vouchers}
+        options={{ headerShown: true }}
+      />
+      <Stack.Group>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      {/* <Stack.Group>
         <Stack.Screen name="Vouchers" component={Vouchers} />
       </Stack.Group>
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      <Stack.Group>
         <Stack.Screen name="Settings" component={Settings} />
-      </Stack.Group>
+      </Stack.Group> */}
     </Stack.Navigator>
   );
 }
