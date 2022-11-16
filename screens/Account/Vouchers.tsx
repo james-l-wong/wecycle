@@ -2,56 +2,70 @@ import React, { useState, useEffect } from "react";
 import { Text, View } from '../../components/Themed';
 import PointsDisplay from "../../components/PointsDisplay";
 import TabButtons from "../../components/TabButtons";
-import { StyleSheet, Image } from "react-native";
-import { TouchableOpacity } from "react-native";
-import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "./LogoImages";
-
-function RedeemItem({Logo, cost, pts}) {
-  return (
-    <>
-    <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
-      <Logo/>
-      <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
-      <View style={{alignItems: "center"}}>
-        <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
-        <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 80, height: 30, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
-          <Text style={{fontSize: 12}}>Redeem</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-    <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-    </>
-  )
-}
-
-function VoucherItem({Logo, cost}) {
-  return (
-    <>
-    <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
-      <Logo/>
-      <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
-      <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
-        <Image
-          style={{width: 45, height: 45}}
-          source={require("../../assets/images/barcodeicon.png")}
-        />
-      </TouchableOpacity>
-    </View>
-    <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-    </>
-  )
-}
+import { StyleSheet, Image, TouchableOpacity } from "react-native";
 
 export default function Vouchers({route, navigation}) {
   const {points, vouchers, onRedeem, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
   const [showView1, setShowView1] = useState(onRedeem);
+  const [vList, setVList] = useState(voucherList);
+  const [rList, setRList] = useState(redeemList);
+
+  useEffect(()=>{
+    setVoucherList(vList);
+    setRedeemList(rList);
+  });
+  
+  function RedeemItem({id, Logo, cost, pts}) {
+    return (
+      <>
+      <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
+        <Logo/>
+        <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
+        <View style={{alignItems: "center"}}>
+          <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
+          <TouchableOpacity
+            style={{backgroundColor: "#D9D9D9", width: 80, height: 30, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
+            onPress={() => {
+              // setVoucherList([...voucherList, redeemList.filter((item)=>item.id === id)[0]]);
+              // setRedeemList(redeemList.filter(item=>item.id !== id));
+              setVList([...vList, rList.filter((item)=>item.id === id)[0]]);
+              setRList(rList.filter(item=>item.id !== id));
+              
+            }}
+          >
+            <Text style={{fontSize: 12}}>Redeem</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      </>
+    )
+  }
+  
+  function VoucherItem({Logo, cost}) {
+    return (
+      <>
+      <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
+        <Logo/>
+        <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
+        <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
+          <Image
+            style={{width: 45, height: 45}}
+            source={require("../../assets/images/barcodeicon.png")}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      </>
+    )
+  }
 
   function RedeemView() {
     return (
       <>
-        {redeemList.map((item, id) => {
+        {rList.map((item, i) => {
           return (
-            <RedeemItem key={id} Logo={item.pic} cost={item.cost} pts={item.pts} />
+            <RedeemItem key={i} id={item.id} Logo={item.pic} cost={item.cost} pts={item.pts} />
           )
         })}
       </>
@@ -61,9 +75,9 @@ export default function Vouchers({route, navigation}) {
   function VoucherView() {
     return (
       <>
-        {voucherList.map((item, id) => {
+        {vList.map((item, id) => {
           return (
-            <RedeemItem key={id} Logo={item.pic} cost={item.cost} pts={item.pts} />
+            <VoucherItem key={id} Logo={item.pic} cost={item.cost} />
           )
         })}
       </>
