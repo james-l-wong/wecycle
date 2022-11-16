@@ -23,7 +23,7 @@ export default function TabTwoScreen() {
 
   useEffect(() => {
     search(searchPhrase)
-  }, searchPhrase)
+  }, [searchPhrase])
 
   return (
     <ScrollView contentContainerStyle={[styles.container]}>
