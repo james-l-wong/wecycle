@@ -2,7 +2,7 @@ import { View, Text } from "../../components/Themed";
 import { Image } from "react-native";
 
 export default function Barcode({route}) {
-  const {id, Logo, cost} = route?.params || {};
+  const {Logo, cost} = route?.params || {};
   return (
     <View style={{padding: 30, paddingHorizontal: 50, height: "100%"}}>
       <View style={{flexDirection: "row", justifyContent: "space-evenly", alignItems: "center", paddingBottom: 20}}>

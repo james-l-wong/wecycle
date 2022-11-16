@@ -1,13 +1,15 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
-import { useState } from 'react';
+import { Platform, StyleSheet, LogBox } from 'react-native';
+import { useEffect, useState } from 'react';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import MenuButton from './MenuButton';
 import PointsDisplay from '../../components/PointsDisplay';
-import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "./LogoImages";
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 function ProfileImage() {
   return (
@@ -26,60 +28,44 @@ function ProfileImage() {
   )
 }
 
-export default function Account({navigation, points, vouchers}) {
-  const [redeemList, setRedeemList] = useState([
-    {
-      id: "coles",
-      pic: ColesLogo,
-      cost: 5,
-      pts: 1000
-    },
-    {
-      id: "woolworths",
-      pic: WoolLogo,
-      cost: 5,
-      pts: 1000
-    },
-    {
-      id: "officeworks",
-      pic: OfficeLogo,
-      cost: 15,
-      pts: 2000
-    },
-    {
-      id: "myers",
-      pic: MyerLogo,
-      cost: 20,
-      pts: 3500
-    }
-  ]);
-  const [voucherList, setVoucherList] = useState([]);
+export default function Account({route, navigation}) {
+  const {points, setPoints, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
+  const [ps, setPs] = useState(points);
+  const [vList, setVList] = useState(voucherList);
+  const [rList, setRList] = useState(redeemList);
+
+  useEffect(() => {
+    setPoints(ps);
+    setVoucherList(vList);
+    setRedeemList(rList);
+  }, [ps, vList])
+
   const Buttons = () => (
     <View>
       <MenuButton
         label={"Redeem Vouchers"}
         colour={"#708B75"}
         pressFn={()=>navigation.navigate("Vouchers", {
-          points: 0,
-          vouchers: 0,
+          points: ps,
+          setPoints: setPs,
           onRedeem: true,
-          redeemList: redeemList,
-          voucherList: voucherList,
-          setRedeemList: setRedeemList,
-          setVoucherList: setVoucherList
+          redeemList: rList,
+          voucherList: vList,
+          setRedeemList: setRList,
+          setVoucherList: setVList
         })}
       />
       <MenuButton
         label={"My Vouchers"}
         colour={"#708B75"}
         pressFn={()=>navigation.navigate("Vouchers", {
-          points: 0,
-          vouchers: 0,
+          points: ps,
+          setPoints: setPs,
           onRedeem: false,
-          redeemList: redeemList,
-          voucherList: voucherList,
-          setRedeemList: setRedeemList,
-          setVoucherList: setVoucherList
+          redeemList: rList,
+          voucherList: vList,
+          setRedeemList: setRList,
+          setVoucherList: setVList
         })}
       />
       <MenuButton
@@ -94,9 +80,10 @@ export default function Account({navigation, points, vouchers}) {
       />
     </View>
   );
+
   return (
       <View style={styles.container}>
-        <PointsDisplay points={0} vouchers={0} />
+        <PointsDisplay points={ps} vouchers={vList.length} />
         <View style={styles.info}>
           <ProfileImage/>
           <View style={styles.infotext}>
