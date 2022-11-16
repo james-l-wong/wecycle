@@ -10,7 +10,7 @@ function ProfileImage() {
   return (
     <View style={styles.circle}>
       <FontAwesome
-        style={{marginTop: 20}}
+        style={{ marginTop: 20 }}
         name="user"
         size={50}
       />
@@ -23,45 +23,45 @@ function ProfileImage() {
   )
 }
 
-export default function ModalScreen({navigation}) {
+export default function ModalScreen({ navigation }) {
   const Buttons = () => (
     <View>
       <MenuButton
         label={"Redeem Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={() => navigation.navigate("Vouchers")}
       />
       <MenuButton
         label={"Your Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={() => navigation.navigate("Vouchers")}
       />
       <MenuButton
         label={"Settings"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Settings")}
+        pressFn={() => navigation.navigate("Settings")}
       />
       <MenuButton
         label={"Log Out"}
         colour={"#D9D9D9"}
-        pressFn={()=>alert("log out")}
+        pressFn={() => alert("log out")}
       />
     </View>
   );
   return (
-      <View style={styles.container}>
-        <View style={styles.info}>
-          <ProfileImage/>
-          <View style={styles.infotext}>
-            <Text style={styles.title}>Username</Text>
-            <Text style={{fontSize:16}}>Email</Text>
-          </View>
+    <View style={styles.container}>
+      <View style={styles.info}>
+        <ProfileImage />
+        <View style={styles.infotext}>
+          <Text style={styles.title}>Username</Text>
+          <Text style={{ fontSize: 16 }}>Email</Text>
         </View>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <Buttons/>
-        {/* Use a light status bar on iOS to account for the black space above the modal */}
-        <StatusBar style={Platform.OS === 'ios' ? 'light' : 'light'/*: 'auto'*/} />
       </View>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <Buttons />
+      {/* Use a light status bar on iOS to account for the black space above the modal */}
+      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'light'/*: 'auto'*/} />
+    </View>
   );
 }
 
