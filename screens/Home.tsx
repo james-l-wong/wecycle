@@ -9,12 +9,12 @@ import { Button } from "native-base";
 import PointsDisplay from "../components/PointsDisplay";
 
 export default function TabOneScreen({
-  navigation,
-}: RootTabScreenProps<"TabOne">) {
+  navigation, points, vouchers
+}: {navigation: RootTabScreenProps<"TabOne">, points: number, vouchers: number}) {
   const width = Dimensions.get("window").width;
   return (
     <View style={styles.container}>
-      <PointsDisplay points={0} vouchers={0} />
+      <PointsDisplay points={points} vouchers={vouchers} />
       <Text style={styles.title}>Pending Devices</Text>
       <Carousel
         style={{ marginLeft: 20, width: width, overflow: "visible" }}

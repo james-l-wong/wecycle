@@ -101,6 +101,8 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  const [points, setPoints] = React.useState(0);
+  const [vouchers, setVouchers] = React.useState(0);
 
   return (
     <BottomTab.Navigator
@@ -112,7 +114,8 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        // component={TabOneScreen}
+        children={()=><TabOneScreen navigation={RootTabScreenProps<"TabOne">} points={points} vouchers={vouchers} />}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Dashboard",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,

@@ -1,45 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View } from '../../components/Themed';
 import PointsDisplay from "../../components/PointsDisplay";
 import TabButtons from "../../components/TabButtons";
 import { StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native";
-
-function ColesLogo() {
-  return (
-    <Image
-      style={{width: 117, height: 36}}
-      source={require("../../assets/images/coles.png")}
-    />
-  )
-}
-
-function WoolLogo() {
-  return (
-    <Image
-      style={{width: 117, height: 28}}
-      source={require("../../assets/images/woolworths.png")}
-    />
-  )
-}
-
-function OfficeLogo() {
-  return (
-    <Image
-      style={{width: 117, height: 31}}
-      source={require("../../assets/images/officeworks.png")}
-    />
-  )
-}
-
-function MyerLogo() {
-  return (
-    <Image
-      style={{width: 117, height: 31}}
-      source={require("../../assets/images/myer.png")}
-    />
-  )
-}
+import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "./LogoImages";
 
 function RedeemItem({Logo, cost, pts}) {
   return (
@@ -59,16 +24,6 @@ function RedeemItem({Logo, cost, pts}) {
   )
 }
 
-function RedeemView() {
-  return (
-    <>
-    <RedeemItem Logo={ColesLogo} cost={5} pts={1000} />
-    <RedeemItem Logo={WoolLogo} cost={5} pts={1000} />
-    <RedeemItem Logo={OfficeLogo} cost={15} pts={2000} />
-    </>
-  )
-}
-
 function VoucherItem({Logo, cost}) {
   return (
     <>
@@ -77,7 +32,7 @@ function VoucherItem({Logo, cost}) {
       <Text style={{fontSize: 30, fontWeight: "bold"}}>${cost}</Text>
       <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
         <Image
-          style={{width: 32, height: 32}}
+          style={{width: 45, height: 45}}
           source={require("../../assets/images/barcodeicon.png")}
         />
       </TouchableOpacity>
@@ -87,18 +42,33 @@ function VoucherItem({Logo, cost}) {
   )
 }
 
-function VoucherView() {
-  return (
-    <View>
-      <VoucherItem Logo={MyerLogo} cost={25} />
-    </View>
-  )
-}
+export default function Vouchers({route, navigation}) {
+  const {points, vouchers, onRedeem, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
+  const [showView1, setShowView1] = useState(onRedeem);
 
-export default function Vouchers({points, vouchers, onRedeem, redeemList, setRedeemList, voucherList, setVoucherList}) {
-  const [showView1, setShowView1] = useState(true);
-  // const [redeemList, setRedeemList] = useState({});
-  // const [voucherList, setVoucherList] = useState({});
+  function RedeemView() {
+    return (
+      <>
+        {redeemList.map((item, id) => {
+          return (
+            <RedeemItem key={id} Logo={item.pic} cost={item.cost} pts={item.pts} />
+          )
+        })}
+      </>
+    )
+  }
+
+  function VoucherView() {
+    return (
+      <>
+        {voucherList.map((item, id) => {
+          return (
+            <RedeemItem key={id} Logo={item.pic} cost={item.cost} pts={item.pts} />
+          )
+        })}
+      </>
+    )
+  }
 
   return (
     <View style={{height: "100%"}}>

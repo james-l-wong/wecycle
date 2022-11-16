@@ -1,11 +1,13 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import MenuButton from './MenuButton';
 import PointsDisplay from '../../components/PointsDisplay';
+import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "./LogoImages";
 
 function ProfileImage() {
   return (
@@ -25,17 +27,60 @@ function ProfileImage() {
 }
 
 export default function Account({navigation, points, vouchers}) {
+  const [redeemList, setRedeemList] = useState([
+    {
+      id: "coles",
+      pic: ColesLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "woolworths",
+      pic: WoolLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "officeworks",
+      pic: OfficeLogo,
+      cost: 15,
+      pts: 2000
+    },
+    {
+      id: "myers",
+      pic: MyerLogo,
+      cost: 20,
+      pts: 3500
+    }
+  ]);
+  const [voucherList, setVoucherList] = useState([]);
   const Buttons = () => (
     <View>
       <MenuButton
         label={"Redeem Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={()=>navigation.navigate("Vouchers", {
+          points: 0,
+          vouchers: 0,
+          onRedeem: true,
+          redeemList: redeemList,
+          voucherList: voucherList,
+          setRedeemList: setRedeemList,
+          setVoucherList: setVoucherList
+        })}
       />
       <MenuButton
-        label={"Your Vouchers"}
+        label={"My Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={()=>navigation.navigate("Vouchers", {
+          points: 0,
+          vouchers: 0,
+          onRedeem: false,
+          redeemList: redeemList,
+          voucherList: voucherList,
+          setRedeemList: setRedeemList,
+          setVoucherList: setVoucherList
+        })}
       />
       <MenuButton
         label={"Settings"}
