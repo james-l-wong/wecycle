@@ -2,24 +2,103 @@ import React, { useState } from "react";
 import { Text, View } from '../../components/Themed';
 import PointsDisplay from "../../components/PointsDisplay";
 import TabButtons from "../../components/TabButtons";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
+import { TouchableOpacity } from "react-native";
+
+function ColesLogo() {
+  return (
+    <Image
+      style={{width: 117, height: 36}}
+      source={require("../../assets/images/coles.png")}
+    />
+  )
+}
+
+function WoolLogo() {
+  return (
+    <Image
+      style={{width: 117, height: 28}}
+      source={require("../../assets/images/woolworths.png")}
+    />
+  )
+}
+
+function OfficeLogo() {
+  return (
+    <Image
+      style={{width: 117, height: 31}}
+      source={require("../../assets/images/officeworks.png")}
+    />
+  )
+}
+
+function MyerLogo() {
+  return (
+    <Image
+      style={{width: 117, height: 31}}
+      source={require("../../assets/images/myer.png")}
+    />
+  )
+}
+
+function RedeemItem({Logo, cost, pts}) {
+  return (
+    <>
+    <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
+      <Logo/>
+      <Text style={{fontSize: 30, fontWeight: "bold"}}>{cost}</Text>
+      <View style={{alignItems: "center"}}>
+        <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
+        <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 80, height: 30, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
+          <Text style={{fontSize: 12}}>Redeem</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+    <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+    </>
+  )
+}
 
 function RedeemView() {
   return (
-    <View><Text>redeem</Text></View>
+    <>
+    <RedeemItem Logo={ColesLogo} cost={"$5"} pts={1000} />
+    <RedeemItem Logo={WoolLogo} cost={"$5"} pts={1000} />
+    <RedeemItem Logo={OfficeLogo} cost={"$15"} pts={2000} />
+    </>
+  )
+}
+
+function VoucherItem({Logo, cost}) {
+  return (
+    <>
+    <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
+      <Logo/>
+      <Text style={{fontSize: 30, fontWeight: "bold"}}>{cost}</Text>
+      <TouchableOpacity style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}>
+        <Image
+          style={{width: 32, height: 32}}
+          source={require("../../assets/images/barcodeicon.png")}
+        />
+      </TouchableOpacity>
+    </View>
+    <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+    </>
   )
 }
 
 function VoucherView() {
   return (
-    <View><Text>voucher</Text></View>
+    <View>
+      <VoucherItem Logo={MyerLogo} cost={"$25"} />
+    </View>
   )
 }
 
 export default function Vouchers({points, vouchers, onRedeem}) {
   const [showView1, setShowView1] = useState(true);
   return (
-    <View>
+    <View style={{height: "100%"}}>
       <PointsDisplay points={0} vouchers={0} />
       {!showView1 ?
       <>
@@ -48,5 +127,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 20,
     marginTop: 20
-  }
+  },
+  separator: {
+    height: 1,
+    width: '100%',
+  },
 })
