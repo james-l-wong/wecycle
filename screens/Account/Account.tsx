@@ -1,10 +1,13 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import MenuButton from './Account/MenuButton';
+import EditScreenInfo from '../../components/EditScreenInfo';
+import { Text, View } from '../../components/Themed';
+import MenuButton from './MenuButton';
+import PointsDisplay from '../../components/PointsDisplay';
+import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "./LogoImages";
 
 function ProfileImage() {
   return (
@@ -23,18 +26,61 @@ function ProfileImage() {
   )
 }
 
-export default function ModalScreen({navigation}) {
+export default function Account({navigation, points, vouchers}) {
+  const [redeemList, setRedeemList] = useState([
+    {
+      id: "coles",
+      pic: ColesLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "woolworths",
+      pic: WoolLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "officeworks",
+      pic: OfficeLogo,
+      cost: 15,
+      pts: 2000
+    },
+    {
+      id: "myers",
+      pic: MyerLogo,
+      cost: 20,
+      pts: 3500
+    }
+  ]);
+  const [voucherList, setVoucherList] = useState([]);
   const Buttons = () => (
     <View>
       <MenuButton
         label={"Redeem Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={()=>navigation.navigate("Vouchers", {
+          points: 0,
+          vouchers: 0,
+          onRedeem: true,
+          redeemList: redeemList,
+          voucherList: voucherList,
+          setRedeemList: setRedeemList,
+          setVoucherList: setVoucherList
+        })}
       />
       <MenuButton
-        label={"Your Vouchers"}
+        label={"My Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={()=>navigation.navigate("Vouchers", {
+          points: 0,
+          vouchers: 0,
+          onRedeem: false,
+          redeemList: redeemList,
+          voucherList: voucherList,
+          setRedeemList: setRedeemList,
+          setVoucherList: setVoucherList
+        })}
       />
       <MenuButton
         label={"Settings"}
@@ -50,6 +96,7 @@ export default function ModalScreen({navigation}) {
   );
   return (
       <View style={styles.container}>
+        <PointsDisplay points={0} vouchers={0} />
         <View style={styles.info}>
           <ProfileImage/>
           <View style={styles.infotext}>
@@ -68,15 +115,14 @@ export default function ModalScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
   },
   separator: {
-    marginVertical: 30,
+    marginVertical: 50,
     height: 1,
     width: '80%',
   },
@@ -100,7 +146,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginRight: 40
+    marginRight: 40,
+    paddingTop: 50
   },
   infotext: {
     flexDirection: 'column',

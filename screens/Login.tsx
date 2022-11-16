@@ -23,7 +23,7 @@ export default function TabTwoScreen({ navigation }) {
       />
       <Button
         style={{ marginTop: 40, backgroundColor: "#758A77", width: 275 }}
-        onPress={() => navigation.navigate("Root")}
+        onPress={() => navigation.navigate("Home")}
       >
         Login
       </Button>
