@@ -5,6 +5,7 @@ import {
   Flex,
   Container,
   Spacer,
+  Heading
 } from 'native-base';
 
 import { View } from '../components/Themed';
@@ -13,6 +14,9 @@ import { View } from '../components/Themed';
 export default function Details() {
   return (
     <View style={{ height: '100%' }}>
+      <Flex direction='row'>
+        <Heading></Heading>
+      </Flex>
     </View>
   );
 }
@@ -22,16 +26,4 @@ const styles = StyleSheet.create({
     width: '85%',
     alignSelf: 'center'
   },
-  notif: {
-    borderRadius: 12,
-    backgroundColor: '#EFEFEF',
-    // height: ,
-    marginTop: 5
-  },
-  img: {
-    width: 50,
-    height: 50,
-    margin: 5,
-    // marginLeft: 10,
-  }
 });
