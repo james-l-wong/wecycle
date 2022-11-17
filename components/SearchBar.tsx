@@ -19,24 +19,25 @@ const SearchBar = ({ setText }: { setText: (newText: string) => void}) => {
             <Divider />
         </Box>}
     >
-      <VStack w="100%" space={5} alignSelf="center">
+      <VStack w="100%"  space={5} alignSelf="center">
         <Input
             placeholder="Search"
-            // onSubmitEditing={props.onSubmit}
+            style={{ backgroundColor:"#708B75" }}
             onChangeText={newText => setText(newText)}
             variant="filled"
             width="100%"
             borderRadius="10"
             py="1"
             px="2"
-            InputLeftElement={
-                <Icon
-                    ml="2"
-                    size="4"
-                    color="gray.400"
-                    as={<SearchIcon name="search" />}
-                />
-            } />
+            // InputLeftElement={
+            //     <Icon
+            //         ml="2"
+            //         size="4"
+            //         color="gray.400"
+            //         as={<SearchIcon name="search" />}
+            //     />
+            // }
+        />
       </VStack>
     </VStack>;
 }

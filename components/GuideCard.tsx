@@ -95,7 +95,7 @@ const GuideCard = ({id}: {id: number}) => {
                 <NativeBaseText
                   fontSize="xs"
                   _light={{
-                    color: "violet.500"
+                    color: "#708B75"
                   }} _dark={{
                     color: "violet.400"
                   }}
@@ -131,63 +131,6 @@ const GuideCard = ({id}: {id: number}) => {
             </Stack>
           </Box>
         </Box>)
-          {/* <Box
-            maxW="96"
-            borderWidth="1"
-            borderColor="coolGray.300"
-            shadow="3"
-            bg={isPressed
-              ? 'coolGray.200'
-              : isHovered
-                ? 'coolGray.200'
-                : 'coolGray.100'}
-            p="5"
-            rounded="8"
-            style={{
-              transform: [{
-                scale: isPressed ? 0.96 : 1
-              }]
-            }}
-          >
-              <Box>
-                <AspectRatio w="100%" ratio={16 / 9}>
-                  <Image
-                    source={{
-                      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
-                    }} alt="blog-card-image" />
-                </AspectRatio>
-              </Box>
-              <HStack alignItems="center">
-                <Badge
-                  colorScheme="darkBlue"
-                  _text={{
-                    color: 'white'
-                  }}
-                  variant="solid"
-                  rounded="4"
-                >
-                  Business
-                </Badge>
-                <Spacer />
-                <NativeBaseText fontSize={10} color="coolGray.800">
-                  1 month ago
-                </NativeBaseText>
-              </HStack>
-              <NativeBaseText color="coolGray.800" mt="3" fontWeight="medium" fontSize="xl">
-                Marketing License
-              </NativeBaseText>
-              <NativeBaseText mt="2" fontSize="sm" color="coolGray.700">
-                Unlock powerfull time-saving tools for creating email delivery and
-                collecting marketing data
-              </NativeBaseText>
-              <Flex>
-                {isFocused ? <NativeBaseText mt="2" fontSize={12} fontWeight="medium" textDecorationLine="underline" color="darkBlue.600" alignSelf="flex-start">
-                  Read More
-                </NativeBaseText> : <NativeBaseText mt="2" fontSize={12} fontWeight="medium" color="darkBlue.600">
-                  Read More
-                </NativeBaseText>}
-              </Flex>
-            </Box> */}
       }}
     </Pressable>
     );
