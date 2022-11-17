@@ -4,13 +4,19 @@ import { StyleSheet } from 'react-native';
 export default function PointsDisplay({points, vouchers}) {
   return (
     <View style={styles.container}>
-      <View style={styles.textcont}>
+      <View
+        accessible={true}
+        accessibilityLabel={`you have ${points} points`}
+        style={styles.textcont}>
         <Text style={[styles.text, styles.num]}>{points}</Text>
         <Text style={styles.text}>  points</Text>
       </View>
-      <View style={styles.textcont}>
+      <View
+        accessible={true}
+        accessibilityLabel={`you have ${vouchers} voucher${vouchers !== 1 ? "s" : ""}`}
+        style={styles.textcont}>
         <Text style={[styles.text, styles.num]}>{vouchers}</Text>
-        <Text style={styles.text}>  vouchers</Text>
+        <Text style={styles.text}>  voucher{vouchers !== 1 ? "s" : ""}</Text>
       </View>
     </View>
   )

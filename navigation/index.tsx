@@ -201,6 +201,8 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
+                accessible={true}
+                accessibilityLabel="account button"
                 onPress={() => navigation.navigate("Account", {
                   points: points,
                   setPoints: setPoints,
@@ -268,7 +270,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -328,7 +339,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -390,7 +410,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,

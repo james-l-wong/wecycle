@@ -26,7 +26,10 @@ export default function Vouchers({route, navigation}) {
 
   function RedeemMessage({isSuccess}) {
     return (
-      <Alert style={{ alignSelf: "center", position: "absolute", bottom: 50}} w="85%" variant={"left-accent"} colorScheme={isSuccess? "success" : "warning"} status={isSuccess? "success" : "warning"}>
+      <Alert 
+        accessible={true}
+        accessibilityLabel={`${isSuccess? "success": "warning"} popup says ${msg}`}
+        style={{ alignSelf: "center", position: "absolute", bottom: 50}} w="85%" variant={"left-accent"} colorScheme={isSuccess? "success" : "warning"} status={isSuccess? "success" : "warning"}>
         <VStack space={2} flexShrink={1} w="100%">
           <HStack flexShrink={1} space={2} alignItems="center" justifyContent="space-between">
             <HStack space={2} flexShrink={1} alignItems="center">
@@ -56,12 +59,17 @@ export default function Vouchers({route, navigation}) {
 
     return (
       <>
-      <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
+      <View
+        accessible={true}
+        accessibilityLabel={`Redeemable $${cost} ${id} voucher for ${pts} points`}
+        style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
         <Logo/>
         <Text style={{fontSize: 30, fontWeight: "bold", width: 60, textAlign: "center"}}>${cost}</Text>
         <View style={{alignItems: "center"}}>
           <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
           <TouchableOpacity
+            accessible={true}
+            accessibilityLabel={`Redeem button for $${cost} ${id} voucher worth ${pts} points`}
             style={{backgroundColor: "#D9D9D9", width: 80, height: 30, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
             onPress={clickRedeem}
           >
@@ -77,10 +85,15 @@ export default function Vouchers({route, navigation}) {
   function VoucherItem({Logo, cost, id}) {
     return (
       <>
-      <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
+      <View 
+        accessible={true}
+        accessibilityLabel={`Your $${cost} ${id} voucher`}
+        style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
         <Logo/>
         <Text style={{fontSize: 30, fontWeight: "bold", width: 60, textAlign: "center"}}>${cost}</Text>
         <TouchableOpacity
+          accessible={true}
+          accessibilityLabel={`Barcode button for your $${cost} ${id} voucher`}
           style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
           onPress={()=> {
             navigation.navigate("Voucher Barcode", {
