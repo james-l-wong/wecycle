@@ -25,7 +25,13 @@ import {
  * static elements? Since there is no backend/way or need to add in props?
  */
 
-const GuideArticle = () => {
+const SpecificGuide = (id) => {
+  return (<Box></Box>)
+}
+
+const GuideArticle = ({route}) => {
+  const {id} = route.params;
+  console.log(id)
     return (<Box alignItems="center">
         <Box>
             <AspectRatio w="100%" ratio={16 / 9}>
@@ -35,6 +41,7 @@ const GuideArticle = () => {
                 }} alt="blog-card-image" />
             </AspectRatio>
         </Box>
+        <SpecificGuide />
         <Stack p="4" space={3}>
             <Stack space={2}>
             <Heading size="md" ml="-1">

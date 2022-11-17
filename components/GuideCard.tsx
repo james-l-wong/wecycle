@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   AspectRatio,
@@ -15,6 +16,7 @@ import {
   Spacer,
   Flex,
 } from 'native-base';
+import { background } from 'native-base/lib/typescript/theme/styled-system';
 
 /**
  * Each guide will have a title, body, summary, thumbnail, author and date
@@ -33,9 +35,17 @@ import {
  * static elements? Since there is no backend/way or need to add in props?
  */
 
-const GuideCard = () => {
-    return (<Pressable>
-        {({
+const GuideCard = ({id}: {id: number}) => {
+  const navigation = useNavigation();
+  console.log(id)
+
+    return (
+    <Pressable
+      onPress={() => {
+        navigation.navigate("GuideArticle", {id: id})
+      }}
+    >
+      {({
         isHovered,
         isPressed
       }) => {
@@ -80,7 +90,7 @@ const GuideCard = () => {
             <Stack p="4" space={3}>
               <Stack space={2}>
                 <Heading size="md" ml="-1">
-                  The Garden City
+                  Guide title
                 </Heading>
                 <NativeBaseText
                   fontSize="xs"

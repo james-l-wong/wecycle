@@ -37,6 +37,7 @@ import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
 import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
+import GuideArticle from "../screens/GuideArticle";
 
 export default function Navigation({
   colorScheme,
@@ -91,6 +92,11 @@ function RootNavigator() {
       <Stack.Screen
         name="Vouchers"
         component={Vouchers}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="GuideArticle"
+        component={GuideArticle}
         options={{ headerShown: true }}
       />
       <Stack.Group>
@@ -153,6 +159,7 @@ function BottomTabNavigator() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: { height: 90 },
+        tabBarHideOnKeyboard: true,
       }}
     >
       <BottomTab.Screen

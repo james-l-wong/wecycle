@@ -31,11 +31,11 @@ export default function TabTwoScreen() {
       <SearchBar setText={newText => setSearchPhrase(newText)}/>
       <View style={[styles.separator]} lightColor="#fff" darkColor="rgba(255,255,255,0.1)" />
       {/* <EditScreenInfo path="/screens/TabTwoScreen.tsx" /> */}
-      <GuideCard />
-      <GuideCard />
-      <GuideCard />
-      <GuideCard />
-      <GuideCard />
+      <GuideCard id={0} />
+      <GuideCard id={1} />
+      <GuideCard id={2} />
+      <GuideCard id={3} />
+      <GuideCard id={4} />
     </ScrollView>
   );
 }
