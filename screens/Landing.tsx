@@ -12,13 +12,13 @@ export default function Landing({ navigation }) {
       <Logo style={{ marginTop: "60%" }} />
       <Button
         style={{ marginTop: 40, backgroundColor: "#758A77", width: 275 }}
-        onPress={() => navigation.navigate("  ")}
+        onPress={() => navigation.navigate("Login")}
       >
         Login
       </Button>
       <Button
         style={{ marginTop: 10, backgroundColor: "#758A77", width: 275 }}
-        onPress={() => navigation.navigate("   ")}
+        onPress={() => navigation.navigate("Register")}
       >
         Register
       </Button>

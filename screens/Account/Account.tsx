@@ -79,7 +79,7 @@ export default function Account({route, navigation}) {
       <MenuButton
         label={"Log Out"}
         colour={"#D9D9D9"}
-        pressFn={()=>alert("log out")}
+        pressFn={()=>navigation.navigate(" ")}
       />
     </View>
   );
