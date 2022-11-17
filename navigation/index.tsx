@@ -37,6 +37,8 @@ import Vouchers from "../screens/Account/Vouchers";
 import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
+import Notifications from "../screens/Notifications";
+import Details from "../screens/Details";
 import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
 
 export default function Navigation({
@@ -109,6 +111,14 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Voucher Barcode" component={Barcode} />
       </Stack.Group>
+      <Stack.Group>
+        <Stack.Screen name="Notifications" component={Notifications} />
+      </Stack.Group>
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{ headerShown: true }}
+      />
       {/* <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Group>  */}
@@ -186,7 +196,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -255,7 +265,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -324,7 +334,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -395,7 +405,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
