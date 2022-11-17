@@ -22,7 +22,13 @@ export default function TabOneScreen({
   return (
     <View style={styles.container}>
       <PointsDisplay points={points} vouchers={vouchers} />
-      <Text style={styles.title}>Pending Devices</Text>
+      <Text
+        accessible={true}
+        accessibilityLabel="Pending Devices"
+        style={styles.title}
+      >
+        Pending Devices
+      </Text>
       <Carousel
         style={{ marginLeft: 20, width: width, overflow: "visible" }}
         loop={false}
@@ -33,8 +39,12 @@ export default function TabOneScreen({
         onSnapToItem={(index) => {}}
         renderItem={(array) => <DeviceTile title={array.item} />}
       />
-      <Text style={styles.title}>Guides</Text>
-      <GuideCard />
+      <Text accessible={true} accessibilityLabel="Guides" style={styles.title}>
+        Featured Guide
+      </Text>
+      <View accessible={true} accessibilityLabel="Featured Guide">
+        <GuideCard />
+      </View>
     </View>
   );
 }
