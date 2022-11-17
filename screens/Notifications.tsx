@@ -25,7 +25,7 @@ export default function Notifications({ navigation }) {
           accessible={true}
           accessibilityLabel="Tap me for details"
           style={styles.notif}
-          onPress={() => navigation.navigate("NotifDetails")}>
+          onPress={() => navigation.navigate("Details")}>
           <Flex direction='row'>
             <Image source={require('../assets/images/council_logo.png')} style={styles.img}></Image>
             <Container>
@@ -33,9 +33,10 @@ export default function Notifications({ navigation }) {
                 <Text
                   accessible={true}
                   accessibilityLabel="Parramatta Council E-waste Collection Event"
-                  fontSize="xs"
-                  margin={1}>
-                  Parramatta Council E-waste Collection Event
+                  fontSize="sm"
+                  margin={1}
+                  marginBottom={0}>
+                  City of Parramatta council E-waste collection event
                 </Text>
                 <Container>
                   <Flex direction='row' alignItems="space-between">
@@ -69,7 +70,7 @@ export default function Notifications({ navigation }) {
                 <Text
                   accessible={true}
                   accessibilityLabel="Drop off old electronic items at Officeworks e-waste bin"
-                  fontSize="xs"
+                  fontSize="sm"
                   margin={1}>
                   Drop off old electronic items at Officeworks e-waste bin
                 </Text>
@@ -112,9 +113,9 @@ export default function Notifications({ navigation }) {
                 <Text
                   accessible={true}
                   accessibilityLabel="Parramatta Council E-waste Collection Event"
-                  fontSize="xs"
+                  fontSize="sm"
                   margin={1}>
-                  Parramatta Council E-waste Collection Event
+                  City of Parramatta council E-waste collection event
                 </Text>
                 <Container>
                   <Flex direction='row' alignItems="space-between">
@@ -139,7 +140,7 @@ export default function Notifications({ navigation }) {
 
 const styles = StyleSheet.create({
   body: {
-    width: '85%',
+    width: '90%',
     alignSelf: 'center'
   },
   notif: {

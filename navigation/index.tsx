@@ -36,7 +36,7 @@ import Notifications from "../screens/Notifications";
 import Vouchers from "../screens/Account/Vouchers";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
-import Details from "../screens/Notif Details";
+import Details from "../screens/Details";
 
 export default function Navigation({
   colorScheme,
