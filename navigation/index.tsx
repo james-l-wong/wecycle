@@ -36,6 +36,7 @@ import Notifications from "../screens/Notifications";
 import Vouchers from "../screens/Account/Vouchers";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
+import Details from "../screens/Notif Details";
 
 export default function Navigation({
   colorScheme,
@@ -85,6 +86,11 @@ function RootNavigator() {
       <Stack.Group>
         <Stack.Screen name="Notifications" component={Notifications} />
       </Stack.Group>
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{ headerShown: true }}
+      />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>

@@ -25,6 +25,7 @@ export type RootStackParamList = {
   Vouchers: undefined;
   Settings: undefined;
   Notifications: undefined;
+  Details: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
