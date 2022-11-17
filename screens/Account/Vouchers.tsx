@@ -3,19 +3,57 @@ import { Text, View } from '../../components/Themed';
 import PointsDisplay from "../../components/PointsDisplay";
 import TabButtons from "../../components/TabButtons";
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Alert, VStack, HStack } from "native-base";
 
 export default function Vouchers({route, navigation}) {
-  const {points, vouchers, onRedeem, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
+  const {points, setPoints, onRedeem, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
   const [showView1, setShowView1] = useState(onRedeem);
   const [vList, setVList] = useState(voucherList);
   const [rList, setRList] = useState(redeemList);
+  const [showMsg, setShowMsg] = useState(false);
+  const [ps, setPs] = useState(points);
+  const [msg, setMsg] = useState("");
 
   useEffect(()=>{
+    setPoints(ps);
     setVoucherList(vList);
     setRedeemList(rList);
+    if (showMsg) {
+      const timer = setTimeout(()=>setShowMsg(false), 2000);
+      return () => clearTimeout(timer);
+    }
   });
 
+  function RedeemMessage({isSuccess}) {
+    return (
+      <Alert style={{ alignSelf: "center", position: "absolute", bottom: 50}} w="85%" variant={"left-accent"} colorScheme={isSuccess? "success" : "warning"} status={isSuccess? "success" : "warning"}>
+        <VStack space={2} flexShrink={1} w="100%">
+          <HStack flexShrink={1} space={2} alignItems="center" justifyContent="space-between">
+            <HStack space={2} flexShrink={1} alignItems="center">
+              <Alert.Icon />
+              <Text>
+                {msg}
+              </Text>
+            </HStack>
+          </HStack>
+        </VStack>
+      </Alert>
+    )
+  }
+
   function RedeemItem({id, Logo, cost, pts}) {
+    function clickRedeem() {
+      if (ps >= pts) {
+        setVList([...vList, rList.filter((item)=>item.id === id)[0]]);
+        setRList(rList.filter(item=>item.id !== id));
+        setPs(ps-pts);
+        setMsg(`Redeemed ${id} voucher`)
+      } else {
+        setMsg("Insufficient points to redeem");
+      }
+      setShowMsg(true);
+    }
+
     return (
       <>
       <View style={{flexDirection: "row", justifyContent: "space-evenly", height: 100, alignItems: "center"}}>
@@ -25,13 +63,7 @@ export default function Vouchers({route, navigation}) {
           <Text style={{fontSize: 16, marginBottom: 5}}>{pts} pts</Text>
           <TouchableOpacity
             style={{backgroundColor: "#D9D9D9", width: 80, height: 30, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
-            onPress={() => {
-              // setVoucherList([...voucherList, redeemList.filter((item)=>item.id === id)[0]]);
-              // setRedeemList(redeemList.filter(item=>item.id !== id));
-              setVList([...vList, rList.filter((item)=>item.id === id)[0]]);
-              setRList(rList.filter(item=>item.id !== id));
-              
-            }}
+            onPress={clickRedeem}
           >
             <Text style={{fontSize: 12}}>Redeem</Text>
           </TouchableOpacity>
@@ -52,7 +84,6 @@ export default function Vouchers({route, navigation}) {
           style={{backgroundColor: "#D9D9D9", width: 50, height: 40, borderRadius: 7, justifyContent: "center", alignItems: "center"}}
           onPress={()=> {
             navigation.navigate("Voucher Barcode", {
-              id: id,
               Logo: Logo,
               cost: cost
             });
@@ -95,7 +126,7 @@ export default function Vouchers({route, navigation}) {
 
   return (
     <View style={{height: "100%"}}>
-      <PointsDisplay points={0} vouchers={0} />
+      <PointsDisplay points={ps} vouchers={vList.length} />
       {!showView1 ?
       <>
         <Text style={styles.title}>My Vouchers</Text>
@@ -108,6 +139,7 @@ export default function Vouchers({route, navigation}) {
       }
       <TabButtons label1={"Redeem"} label2={"My Vouchers"} showView1={showView1} setShowView1={setShowView1} />
       {showView1 ? <RedeemView/> : <VoucherView/>}
+      {showMsg ? <RedeemMessage isSuccess={msg.startsWith("I") ? false : true} /> : <></>}
     </View>
   )
 }

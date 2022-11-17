@@ -36,6 +36,7 @@ import Vouchers from "../screens/Account/Vouchers";
 import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
+import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
 
 export default function Navigation({
   colorScheme,
@@ -117,8 +118,34 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-  const [points, setPoints] = React.useState(0);
-  const [vouchers, setVouchers] = React.useState(0);
+  const [points, setPoints] = React.useState(3000);
+  const [voucherList, setVoucherList] = React.useState([]);
+  const [redeemList, setRedeemList] = React.useState([
+    {
+      id: "Coles",
+      pic: ColesLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "Woolworths",
+      pic: WoolLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "Officeworks",
+      pic: OfficeLogo,
+      cost: 15,
+      pts: 2000
+    },
+    {
+      id: "Myers",
+      pic: MyerLogo,
+      cost: 20,
+      pts: 3500
+    }
+  ]);
 
   return (
     <BottomTab.Navigator
@@ -135,7 +162,7 @@ function BottomTabNavigator() {
           <TabOneScreen
             navigation={RootTabScreenProps<"TabOne">}
             points={points}
-            vouchers={vouchers}
+            vouchers={voucherList.length}
           />
         )}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
@@ -174,7 +201,14 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
