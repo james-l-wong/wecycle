@@ -20,6 +20,7 @@ export default function App() {
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
         </SafeAreaProvider>
+        
       </NativeBaseProvider>
     );
   }

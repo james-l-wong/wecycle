@@ -7,6 +7,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -19,12 +20,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyB79oj7pFK0pdAAhaXxlgaT5RXIxvBA-XU "
+    }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "config": {
+          "googleMapsApiKey": "AIzaSyB79oj7pFK0pdAAhaXxlgaT5RXIxvBA-XU "
+      }
       }
     },
     "web": {
