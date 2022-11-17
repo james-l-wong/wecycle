@@ -76,11 +76,13 @@ const GuideArticle = ({route}) => {
     renderGuideContent = GuideContent1;
   }
   /**
-   * Do the same for the rest of the id to render the content in a guide
+   * TODO Do the same for the rest of the id to render the content in a guide
    * Do the same for guideDetails to render details of a guide
    * Then insert elements into return below e.g. for id == 0:
    * guideContent[0].title and renderGuideContent would be GuideContent0 from
    * if/else statements so just put {renderGuideContent} in the right section
+   * 
+   * Do the same thing for guide cards, but no need for GuideContent
    */
     return (<Box alignItems="center">
         <Box>
