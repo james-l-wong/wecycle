@@ -25,23 +25,72 @@ import {
  * static elements? Since there is no backend/way or need to add in props?
  */
 
-const SpecificGuide = (id) => {
-  return (<Box></Box>)
-}
+const guideDetails = [
+  {
+    title: 'title1',
+    image: {
+      uri: 'uri',
+      alt: 'alt-text'
+    },
+    summary: 'summary text',
+    author: 'bob brwom',
+    postedOn: '18/11/2022',
+  },
+  {
+    title: 'title2',
+    image: {
+      uri: 'uri',
+      alt: 'alt-text'
+    },
+    summary: 'another summary text',
+    author: 'jane brwom',
+    postedOn: '17/11/2022',
+  }
+];
+
+const GuideContent0 = () => {
+  return (
+    <Box>
+      paragraphs and stuff
+    </Box>
+  )
+};
+
+const GuideContent1 = () => {
+  return (
+    <Box>
+      paragraphs and stuff
+    </Box>
+  )
+};
 
 const GuideArticle = ({route}) => {
   const {id} = route.params;
+  let renderGuideContent = null;
   console.log(id)
+  console.log(guideDetails);
+
+  if (id === 0) {
+    renderGuideContent = GuideContent0;
+  } else if (id === 1) {
+    renderGuideContent = GuideContent1;
+  }
+  /**
+   * Do the same for the rest of the id to render the content in a guide
+   * Do the same for guideDetails to render details of a guide
+   * Then insert elements into return below e.g. for id == 0:
+   * guideContent[0].title and renderGuideContent would be GuideContent0 from
+   * if/else statements so just put {renderGuideContent} in the right section
+   */
     return (<Box alignItems="center">
         <Box>
             <AspectRatio w="100%" ratio={16 / 9}>
             <Image
                 source={{
-                uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
+                  uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
                 }} alt="blog-card-image" />
             </AspectRatio>
         </Box>
-        <SpecificGuide />
         <Stack p="4" space={3}>
             <Stack space={2}>
             <Heading size="md" ml="-1">
@@ -58,7 +107,7 @@ const GuideArticle = ({route}) => {
                 ml="-0.5"
                 mt="-1"
             >
-                The Silicon Valley of India.
+                The Silicon Valley of India. Remove this and make heading colour green?
             </NativeBaseText>
             </Stack>
             <NativeBaseText fontWeight="400">
