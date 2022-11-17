@@ -37,7 +37,7 @@ import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
 import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
-import GuideArticle from "../screens/GuideArticle";
+import Guide from "../screens/Guide";
 
 export default function Navigation({
   colorScheme,
@@ -95,8 +95,8 @@ function RootNavigator() {
         options={{ headerShown: true }}
       />
       <Stack.Screen
-        name="GuideArticle"
-        component={GuideArticle}
+        name="Guide"
+        component={Guide}
         options={{ headerShown: true }}
       />
       <Stack.Group>

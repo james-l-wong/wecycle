@@ -42,7 +42,7 @@ const GuideCard = ({id}: {id: number}) => {
     return (
     <Pressable
       onPress={() => {
-        navigation.navigate("GuideArticle", {id: id})
+        navigation.navigate("Guide", {id: id})
       }}
     >
       {({

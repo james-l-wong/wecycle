@@ -27,7 +27,7 @@ import {
 
 const guideDetails = [
   {
-    title: 'title1',
+    title: "The e-waste problem",
     image: {
       uri: 'uri',
       alt: 'alt-text'
@@ -37,7 +37,27 @@ const guideDetails = [
     postedOn: '18/11/2022',
   },
   {
-    title: 'title2',
+    title: "What's being done about e-waste",
+    image: {
+      uri: 'uri',
+      alt: 'alt-text'
+    },
+    summary: 'summary text',
+    author: 'bob brwom',
+    postedOn: '18/11/2022',
+  },
+  {
+    title: "How to deal with e-waste",
+    image: {
+      uri: 'uri',
+      alt: 'alt-text'
+    },
+    summary: 'summary text',
+    author: 'bob brwom',
+    postedOn: '18/11/2022',
+  },
+  {
+    title: "More tips and information for recycling e-waste",
     image: {
       uri: 'uri',
       alt: 'alt-text'
@@ -45,7 +65,17 @@ const guideDetails = [
     summary: 'another summary text',
     author: 'jane brwom',
     postedOn: '17/11/2022',
-  }
+  },
+  {
+    title: "How to securely remove data before disposing of e-waste",
+    image: {
+      uri: 'uri',
+      alt: 'alt-text'
+    },
+    summary: 'summary text',
+    author: 'bob brwom',
+    postedOn: '18/11/2022',
+  },
 ];
 
 const GuideContent0 = () => {
@@ -64,7 +94,7 @@ const GuideContent1 = () => {
   )
 };
 
-const GuideArticle = ({route}) => {
+const Guide = ({route}) => {
   const {id} = route.params;
   let renderGuideContent = null;
   console.log(id)
@@ -136,7 +166,7 @@ const GuideArticle = ({route}) => {
         </Stack>
     </Box>);
   };
-export default GuideArticle;
+export default Guide;
 
 const styles = StyleSheet.create({
     container: {

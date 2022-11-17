@@ -23,7 +23,7 @@ export type RootStackParamList = {
   login_flow: undefined;
   DeviceDetails: { test: string };
   Vouchers: undefined;
-  GuideArticle: { id: number }; // if pass in props do like device details
+  Guide: { id: number }; // if pass in props do like device details
   Barcode: undefined;
   Settings: undefined;
 };
