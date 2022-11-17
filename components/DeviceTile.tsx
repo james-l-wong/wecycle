@@ -7,13 +7,17 @@ import AddIcon from "../assets/icons/Add";
 export default function DeviceTile({ title }: { title: string }) {
   const navigation = useNavigation();
   return (
-    <View>
+    <Pressable
+      onPress={() => {
+        title !== "Add"
+          ? navigation.navigate("DeviceDetails", { test: title })
+          : console.log("Navigate to Add flow");
+        // TODO: Change to add device flow when available
+        // navigation.navigate("DeviceDetails", { test: title }
+      }}
+    >
       <View style={[title === "Add" ? styles.addContainer : styles.container]}>
-        <Pressable
-          onPress={() => {
-            navigation.navigate("DeviceDetails", { test: "peepeepoopoo" });
-          }}
-        >
+        <Pressable>
           {title === "Add" ? (
             <>
               <AddIcon />
@@ -40,7 +44,7 @@ export default function DeviceTile({ title }: { title: string }) {
       <View style={{ alignItems: "center", width: 130, marginTop: 5 }}>
         <Text>{title}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
 

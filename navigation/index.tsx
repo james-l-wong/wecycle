@@ -16,7 +16,7 @@ import { ColorSchemeName, Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/ModalScreen";
+import Account from "../screens/Account/Account";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Home";
 
@@ -33,7 +33,10 @@ import Services from "../screens/Services";
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
 import Vouchers from "../screens/Account/Vouchers";
+import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
+import DeviceDetails from "../screens/DeviceDetails";
+import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
 
 export default function Navigation({
   colorScheme,
@@ -72,23 +75,37 @@ function RootNavigator() {
       />
       <Stack.Screen
         name="DeviceDetails"
-        component={DeviceNavigator}
-        options={{ headerShown: false }}
+        component={DeviceDetails}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="Vouchers"
+        component={Vouchers}
+        options={{ headerShown: true }}
+      />
+      <Stack.Group>
+        <Stack.Screen name="Account" component={Account} />
       </Stack.Group>
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      {/* <Stack.Group>
         <Stack.Screen name="Vouchers" component={Vouchers} />
       </Stack.Group>
+      <Stack.Group> */}
       <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Voucher Barcode" component={Barcode} />
       </Stack.Group>
+      {/* <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="Settings" component={Settings} />
+      </Stack.Group>  */}
     </Stack.Navigator>
   );
 }
@@ -101,6 +118,34 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  const [points, setPoints] = React.useState(3000);
+  const [voucherList, setVoucherList] = React.useState([]);
+  const [redeemList, setRedeemList] = React.useState([
+    {
+      id: "Coles",
+      pic: ColesLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "Woolworths",
+      pic: WoolLogo,
+      cost: 5,
+      pts: 1000
+    },
+    {
+      id: "Officeworks",
+      pic: OfficeLogo,
+      cost: 15,
+      pts: 2000
+    },
+    {
+      id: "Myers",
+      pic: MyerLogo,
+      cost: 20,
+      pts: 3500
+    }
+  ]);
 
   return (
     <BottomTab.Navigator
@@ -112,7 +157,14 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        // component={TabOneScreen}
+        children={() => (
+          <TabOneScreen
+            navigation={RootTabScreenProps<"TabOne">}
+            points={points}
+            vouchers={voucherList.length}
+          />
+        )}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Dashboard",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
@@ -128,7 +180,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -149,7 +201,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -188,7 +249,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -209,7 +270,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -248,7 +318,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -269,7 +339,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -310,7 +389,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                onPress={() => navigation.navigate("Account")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -331,7 +410,16 @@ function BottomTabNavigator() {
                 />
               </Pressable>
               <Pressable
-                onPress={() => navigation.navigate("Modal")}
+                accessible={true}
+                accessibilityLabel="account button"
+                onPress={() => navigation.navigate("Account", {
+                  points: points,
+                  setPoints: setPoints,
+                  voucherList: voucherList,
+                  setVoucherList: setVoucherList,
+                  redeemList: redeemList,
+                  setRedeemList: setRedeemList
+                })}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,

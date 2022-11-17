@@ -1,14 +1,22 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, LogBox } from 'react-native';
+import { useEffect, useState } from 'react';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import MenuButton from './Account/MenuButton';
+import { Text, View } from '../../components/Themed';
+import MenuButton from './MenuButton';
+import PointsDisplay from '../../components/PointsDisplay';
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 function ProfileImage() {
   return (
-    <View style={styles.circle}>
+    <View
+      accessible={true}
+      accessibilityLabel="profile image"
+      style={styles.circle}>
       <FontAwesome
         style={{marginTop: 20}}
         name="user"
@@ -23,18 +31,45 @@ function ProfileImage() {
   )
 }
 
-export default function ModalScreen({navigation}) {
+export default function Account({route, navigation}) {
+  const {points, setPoints, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
+  const [ps, setPs] = useState(points);
+  const [vList, setVList] = useState(voucherList);
+  const [rList, setRList] = useState(redeemList);
+
+  useEffect(() => {
+    setPoints(ps);
+    setVoucherList(vList);
+    setRedeemList(rList);
+  }, [ps, vList])
+
   const Buttons = () => (
     <View>
       <MenuButton
         label={"Redeem Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={()=>navigation.navigate("Vouchers", {
+          points: ps,
+          setPoints: setPs,
+          onRedeem: true,
+          redeemList: rList,
+          voucherList: vList,
+          setRedeemList: setRList,
+          setVoucherList: setVList
+        })}
       />
       <MenuButton
-        label={"Your Vouchers"}
+        label={"My Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers")}
+        pressFn={()=>navigation.navigate("Vouchers", {
+          points: ps,
+          setPoints: setPs,
+          onRedeem: false,
+          redeemList: rList,
+          voucherList: vList,
+          setRedeemList: setRList,
+          setVoucherList: setVList
+        })}
       />
       <MenuButton
         label={"Settings"}
@@ -48,13 +83,15 @@ export default function ModalScreen({navigation}) {
       />
     </View>
   );
+
   return (
       <View style={styles.container}>
+        <PointsDisplay points={ps} vouchers={vList.length} />
         <View style={styles.info}>
           <ProfileImage/>
           <View style={styles.infotext}>
-            <Text style={styles.title}>Username</Text>
-            <Text style={{fontSize:16}}>Email</Text>
+            <Text style={styles.title}>Jane Doe</Text>
+            <Text style={{fontSize:16}}>jane.doe@email.com</Text>
           </View>
         </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -68,15 +105,14 @@ export default function ModalScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
   },
   separator: {
-    marginVertical: 30,
+    marginVertical: 50,
     height: 1,
     width: '80%',
   },
@@ -96,11 +132,11 @@ const styles = StyleSheet.create({
     paddingLeft: 2
   },
   info: {
-    width: '80%',
+    width: '95%',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginRight: 40
+    paddingTop: 50,
   },
   infotext: {
     flexDirection: 'column',
