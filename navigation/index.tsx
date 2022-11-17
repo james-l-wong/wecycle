@@ -30,6 +30,7 @@ import Home from "../assets/icons/Home";
 import Devices from "../screens/Devices";
 import Guides from "../screens/Guides";
 import Services from "../screens/Services";
+import UploadDevice from "../screens/UploadDevice"
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
 import Vouchers from "../screens/Account/Vouchers";
@@ -91,6 +92,11 @@ function RootNavigator() {
       <Stack.Screen
         name="Vouchers"
         component={Vouchers}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="UploadDevice"
+        component={UploadDevice}
         options={{ headerShown: true }}
       />
       <Stack.Group>
