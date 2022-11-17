@@ -76,6 +76,7 @@ export default function Account({route, navigation}) {
         colour={"#708B75"}
         pressFn={()=>navigation.navigate("Settings")}
       />
+      <View style={{height: "15%"}}></View>
       <MenuButton
         label={"Log Out"}
         colour={"#D9D9D9"}
