@@ -5,7 +5,7 @@
 1. Frontend Configuration
     - In ‘/wecycle/’ directory, run:
 
-&emsp;&emsp;&emsp;&emsp;`npm install`
+&emsp;&emsp;&emsp;&emsp;`yarn install`
 
 2. Run our project
     - In ‘/wecycle/’ directory, run:
