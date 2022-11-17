@@ -5,20 +5,20 @@ import { View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import Carousel from "react-native-reanimated-carousel";
 import DeviceTile from "../components/DeviceTile";
-import { Text } from "native-base";
+import { Pressable, Text } from "native-base";
 import PointsDisplay from "../components/PointsDisplay";
 import GuideCard from "../components/GuideCard";
+import { useNavigation } from "@react-navigation/native";
 
 export default function TabOneScreen({
-  navigation,
   points,
   vouchers,
 }: {
-  navigation: RootTabScreenProps<"TabOne">;
   points: number;
   vouchers: number;
 }) {
   const width = Dimensions.get("window").width;
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <PointsDisplay points={points} vouchers={vouchers} />
@@ -39,9 +39,27 @@ export default function TabOneScreen({
         onSnapToItem={(index) => {}}
         renderItem={(array) => <DeviceTile title={array.item} />}
       />
-      <Text accessible={true} accessibilityLabel="Guides" style={styles.title}>
-        Featured Guide
-      </Text>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Text
+          accessible={true}
+          accessibilityLabel="Guides"
+          style={styles.title}
+        >
+          Featured Guide
+        </Text>
+        <Pressable onPress={() => navigation.navigate("TabThree")}>
+          <Text style={{ textDecorationLine: true, marginRight: 20 }}>
+            See All
+          </Text>
+        </Pressable>
+      </View>
       <View accessible={true} accessibilityLabel="Featured Guide">
         <GuideCard />
       </View>
