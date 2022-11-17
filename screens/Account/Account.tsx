@@ -13,7 +13,10 @@ LogBox.ignoreLogs([
 
 function ProfileImage() {
   return (
-    <View style={styles.circle}>
+    <View
+      accessible={true}
+      accessibilityLabel="profile image"
+      style={styles.circle}>
       <FontAwesome
         style={{marginTop: 20}}
         name="user"
@@ -87,8 +90,8 @@ export default function Account({route, navigation}) {
         <View style={styles.info}>
           <ProfileImage/>
           <View style={styles.infotext}>
-            <Text style={styles.title}>Username</Text>
-            <Text style={{fontSize:16}}>Email</Text>
+            <Text style={styles.title}>Jane Doe</Text>
+            <Text style={{fontSize:16}}>jane.doe@email.com</Text>
           </View>
         </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -129,12 +132,11 @@ const styles = StyleSheet.create({
     paddingLeft: 2
   },
   info: {
-    width: '80%',
+    width: '95%',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginRight: 40,
-    paddingTop: 50
+    paddingTop: 50,
   },
   infotext: {
     flexDirection: 'column',

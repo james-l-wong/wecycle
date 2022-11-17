@@ -4,6 +4,8 @@ import { Text, View } from '../../components/Themed';
 export default function MenuButton({label, colour, pressFn}) {
   return (
     <TouchableOpacity
+      accessible={true}
+      accessibilityLabel={`${label} button`}
       onPress={pressFn}
       style={[styles.menuButton, {backgroundColor: colour}]}>
       <Text style={label == 'Log Out' ? { fontSize: 20, color: '#C60000' } : { fontSize: 20, color: '#fff', fontWeight: 'bold' }}>{label}</Text>

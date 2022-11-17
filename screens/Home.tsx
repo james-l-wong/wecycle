@@ -1,21 +1,34 @@
 import React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 
-import { Text, View } from "../components/Themed";
+import { View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import Carousel from "react-native-reanimated-carousel";
 import DeviceTile from "../components/DeviceTile";
-import { Button } from "native-base";
+import { Text } from "native-base";
 import PointsDisplay from "../components/PointsDisplay";
+import GuideCard from "../components/GuideCard";
 
 export default function TabOneScreen({
-  navigation, points, vouchers
-}: {navigation: RootTabScreenProps<"TabOne">, points: number, vouchers: number}) {
+  navigation,
+  points,
+  vouchers,
+}: {
+  navigation: RootTabScreenProps<"TabOne">;
+  points: number;
+  vouchers: number;
+}) {
   const width = Dimensions.get("window").width;
   return (
     <View style={styles.container}>
       <PointsDisplay points={points} vouchers={vouchers} />
-      <Text style={styles.title}>Pending Devices</Text>
+      <Text
+        accessible={true}
+        accessibilityLabel="Pending Devices"
+        style={styles.title}
+      >
+        Pending Devices
+      </Text>
       <Carousel
         style={{ marginLeft: 20, width: width, overflow: "visible" }}
         loop={false}
@@ -26,7 +39,12 @@ export default function TabOneScreen({
         onSnapToItem={(index) => {}}
         renderItem={(array) => <DeviceTile title={array.item} />}
       />
-      <Text style={styles.title}>Guides</Text>
+      <Text accessible={true} accessibilityLabel="Guides" style={styles.title}>
+        Featured Guide
+      </Text>
+      <View accessible={true} accessibilityLabel="Featured Guide">
+        <GuideCard />
+      </View>
     </View>
   );
 }
