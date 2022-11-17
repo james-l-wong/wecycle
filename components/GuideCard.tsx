@@ -20,9 +20,14 @@ import {
  * Each guide will have a title, body, summary, thumbnail, author and date
  * Cards will display title, summary, thumnmail, author and date
  * Articles have everything except summary as well as a share button
+ * 
  * TODO guide article screen is given a blog id (could be title or an id)
  * If/else statements are run to see which blog to display
  * blog id is given by guide card, onClick => display article given id
+ * 
+ * Guide cards are given their title in the Guides screen to search bar
+ * can use titles in search
+ * 
  * 
  * Cards and articles should be passed these props or just make them
  * static elements? Since there is no backend/way or need to add in props?
@@ -32,7 +37,6 @@ const GuideCard = () => {
     return (<Pressable>
         {({
         isHovered,
-        isFocused,
         isPressed
       }) => {
         return ( <Box alignItems="center">
@@ -61,7 +65,7 @@ const GuideCard = () => {
             style={[
               styles.card,
               {transform: [{
-                scale: isFocused ? 0.96 : 1
+                scale: isPressed ? 0.96 : 1
               }]}
             ]}
           >
@@ -104,6 +108,7 @@ const GuideCard = () => {
                       color: "warmGray.200"
                     }}
                     fontWeight="400"
+                    style={styles.smallTextMargin}
                   >
                     6 mins ago
                   </NativeBaseText>
@@ -197,5 +202,8 @@ const styles = StyleSheet.create({
     card: {
       marginTop: 10,
       marginBottom: 10,
+    },
+    smallTextMargin: {
+      marginTop: 5,
     },
   });
