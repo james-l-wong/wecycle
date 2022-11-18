@@ -29,14 +29,6 @@ const SearchBar = ({ setText }: { setText: (newText: string) => void}) => {
             borderColor={"gray.400"}
             py="1"
             px="2"
-            // InputLeftElement={
-            //     <Icon
-            //         ml="2"
-            //         size="4"
-            //         color="gray.400"
-            //         as={<SearchIcon name="search" />}
-            //     />
-            // }
         />
       </VStack>
     </VStack>;
