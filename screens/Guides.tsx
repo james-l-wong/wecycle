@@ -74,9 +74,7 @@ export default function TabTwoScreen() {
 
   return (
     <ScrollView contentContainerStyle={[styles.container]}>
-      <Text style={styles.title}>Guides</Text>
       <SearchBar setText={newText => setSearchPhrase(newText)}/>
-      <View style={[styles.separator]} lightColor="#fff" darkColor="rgba(255,255,255,0.1)" />
       {/* <EditScreenInfo path="/screens/TabTwoScreen.tsx" /> */}
       <GuideCard id={0} />
       <GuideCard id={1} />

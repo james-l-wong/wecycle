@@ -108,10 +108,11 @@ const GuideCard = ({id}: {id: number}) => {
       }) => {
         return ( <Box alignItems="center">
           <Box
-            maxW="80"
+            maxW="375px"
             rounded="lg"
             overflow="hidden"
             borderColor="coolGray.200"
+            borderRadius="15"
             borderWidth="1"
             _dark={{
               borderColor: "coolGray.600",

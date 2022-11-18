@@ -13,7 +13,7 @@ const SearchBar = ({ setText }: { setText: (newText: string) => void}) => {
         my="4"
         space={5}
         w="100%"
-        maxW="300px"
+        maxW="375px"
         divider={
         <Box px="2">
             <Divider />
@@ -26,6 +26,7 @@ const SearchBar = ({ setText }: { setText: (newText: string) => void}) => {
             variant="filled"
             width="100%"
             borderRadius="10"
+            borderColor={"gray.400"}
             py="1"
             px="2"
             // InputLeftElement={

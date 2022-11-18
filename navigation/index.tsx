@@ -102,6 +102,10 @@ function RootNavigator() {
         options={{ headerShown: true }}
       />
       <Stack.Screen
+        name="Guide"
+        component={Guide}
+      />
+      <Stack.Screen
         name="Upload"
         component={UploadDevice}
         options={{ headerShown: true }}
