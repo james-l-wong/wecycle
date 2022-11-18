@@ -26,6 +26,8 @@ export type RootStackParamList = {
   Guide: { id: number }; // if pass in props do like device details
   Barcode: undefined;
   Settings: undefined;
+  UploadDevice: undefined;
+  ServiceList: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

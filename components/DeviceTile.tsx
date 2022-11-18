@@ -9,15 +9,13 @@ export default function DeviceTile({ title }: { title: string }) {
   return (
     <Pressable
       onPress={() => {
+        console.log("title");
         title !== "Add"
           ? navigation.navigate("DeviceDetails", { test: title })
-          : console.log("Navigate to Add flow");
-        // TODO: Change to add device flow when available
-        // navigation.navigate("DeviceDetails", { test: title }
+          : navigation.navigate("UploadDevice")
       }}
-    >
+          >
       <View style={[title === "Add" ? styles.addContainer : styles.container]}>
-        <Pressable>
           {title === "Add" ? (
             <>
               <AddIcon />
@@ -39,7 +37,6 @@ export default function DeviceTile({ title }: { title: string }) {
               source={require("../assets/images/fridge.png")}
             />
           )}
-        </Pressable>
       </View>
       <View style={{ alignItems: "center", width: 130, marginTop: 5 }}>
         <Text>{title}</Text>

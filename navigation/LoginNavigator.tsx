@@ -9,8 +9,8 @@ export function LoginNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name=" " component={Landing} />
-      <Stack.Screen name="  " component={Login} />
-      <Stack.Screen name="   " component={Register} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 }

@@ -27,9 +27,11 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Home from "../assets/icons/Home";
+import ServiceList from "../screens/Services"
 import Devices from "../screens/Devices";
 import Guides from "../screens/Guides";
 import Services from "../screens/Services";
+import UploadDevice from "../screens/UploadDevice"
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
 import Vouchers from "../screens/Account/Vouchers";
@@ -64,11 +66,11 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       {/** add in login navigator (Stack) as a Stack.Screen */}
-      {/* <Stack.Screen
+      <Stack.Screen
         name="login_flow"
         component={LoginNavigator}
         options={{ headerShown: false }}
-      /> */}
+      />
       <Stack.Screen
         name="Home"
         component={BottomTabNavigator}
@@ -83,6 +85,11 @@ function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
+      /> 
+      <Stack.Screen
+        name="ServiceList"
+        component={ServiceList}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="Settings"
@@ -97,6 +104,10 @@ function RootNavigator() {
       <Stack.Screen
         name="Guide"
         component={Guide}
+      />
+      <Stack.Screen
+        name="UploadDevice"
+        component={UploadDevice}
         options={{ headerShown: true }}
       />
       <Stack.Group>
