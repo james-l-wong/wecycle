@@ -2,13 +2,14 @@ import { useNavigation } from "@react-navigation/native";
 import { Text, Container, Flex } from "native-base";
 import { flexbox } from "native-base/lib/typescript/theme/styled-system";
 import React from "react";
-import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Image, TouchableOpacity,ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { View } from "../components/Themed";
 
 export default function TabTwoScreen({ route }: { route: any }) {
   const navigation = useNavigation();
   return (
+    <ScrollView> 
     <View style={styles.container}>
       <Text style={styles.title}>Device Information</Text>
       <Text style={styles.text}>View information about device</Text>
@@ -142,6 +143,7 @@ export default function TabTwoScreen({ route }: { route: any }) {
         darkColor="rgba(255,255,255,0.1)"
       /> */}
     </View>
+    </ScrollView>
   );
 }
 
@@ -192,7 +194,7 @@ const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
     height: 390,
-    width: 415,
+    width: 390,
     marginTop: 370,
     borderRadius: 15,
     // justifyContent: 'flex-end',
