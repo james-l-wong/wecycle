@@ -6,25 +6,26 @@ import {
   Container,
   Spacer,
   Progress,
-  Box
+  Box,
+  View
 } from 'native-base';
 
-import { View } from '../components/Themed';
+// import { View } from '../components/Themed';
 import DeviceTile from '../components/DeviceTile';
 
-export default function TabTwoScreen(navigation) {
+export default function TabTwoScreen() {
   return (
-    <View style={{ height: '100%' }}>
+    <View style={{ height: '100%', backgroundColor: 'white' }}>
       <View style={styles.body}>
         <Text marginTop={5} marginBottom={4} fontSize="md">View information about all devices</Text>
         {/* TODO: change to navigate to pending devices */}
-        <TouchableOpacity
+        <View
           accessible={true}
-          accessibilityLabel="Tap me for details on this device"
-          onPress={() => navigation.navigate("Guides")}>
+          accessibilityLabel="Tap me for details on this device">
+          {/* onPress={() => navigation.navigate("DeviceDetails")}> */}
           <Flex direction='row'>
             <DeviceTile title="iPhone" />
-            <Container marginLeft={7}>
+            <View style={{ marginLeft: 20 }}>
               <Text
                 accessible={true}
                 accessibilityLabel="Company: Apple">
@@ -45,12 +46,56 @@ export default function TabTwoScreen(navigation) {
                 accessibilityLabel="Condition: Fully functional">
                 Condition: Fully functional
               </Text>
-              <Box w="100%" maxW="400">
-                <Progress value={60} mx="4" colorScheme="emerald" />
+              <Box marginTop={3}>
+                <Progress value={70} colorScheme="emerald" />
               </Box>
-            </Container>
+              <Text
+                accessible={true}
+                accessibilityLabel="Status: Resolving enquiries">
+                Status: Resolving enquiries
+              </Text>
+            </View>
           </Flex>
-        </TouchableOpacity>
+        </View>
+        <View
+          accessible={true}
+          accessibilityLabel="Tap me for details on this device"
+          marginTop={5}>
+          {/* onPress={() => navigation.navigate("DeviceDetails")}> */}
+          <Flex direction='row'>
+            <DeviceTile title="Fridge" />
+            <View style={{ marginLeft: 20 }}>
+              <Text
+                accessible={true}
+                accessibilityLabel="Company: Samsung">
+                Company: Samsung
+              </Text>
+              <Text
+                accessible={true}
+                accessibilityLabel="Model: Fridge">
+                Model: Fridge
+              </Text>
+              <Text
+                accessible={true}
+                accessibilityLabel="Age: 5 years 2 months">
+                Age: 5 years 2 months
+              </Text>
+              <Text
+                accessible={true}
+                accessibilityLabel="Condition: broken light">
+                Condition: broken light
+              </Text>
+              <Box marginTop={3}>
+                <Progress value={30} colorScheme="emerald" />
+              </Box>
+              <Text
+                accessible={true}
+                accessibilityLabel="Status: Awaiting callback">
+                Status: Awaiting callback
+              </Text>
+            </View>
+          </Flex>
+        </View>
       </View>
     </View>
   );
