@@ -12,7 +12,7 @@
 
 &emsp;&emsp;&emsp;&emsp;`npx expo start`
 
-3. Scan the Metro Bundler barcode with your phone or use a simulator to run our app
+3. Run our app on iPhone 14 on XCode Simulator by entering "i" in the same terminal or scan the barcode with an iOS device.
 
 ## Our Landing Page
 

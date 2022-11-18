@@ -41,6 +41,7 @@ import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
 import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
 import Details from "../screens/Details";
+import Guide from "../screens/Guide";
 
 export default function Navigation({
   colorScheme,
@@ -90,7 +91,7 @@ function RootNavigator() {
       <Stack.Screen
         name="ServiceList"
         component={ServiceList}
-        options={{ headerShown: true }}
+        options={{ headerShown: true, title: " " }}
       />
       <Stack.Screen
         name="Settings"
@@ -103,7 +104,11 @@ function RootNavigator() {
         options={{ headerShown: true }}
       />
       <Stack.Screen
-        name="UploadDevice"
+        name="Guide"
+        component={Guide}
+      />
+      <Stack.Screen
+        name="Upload"
         component={UploadDevice}
         options={{ headerShown: true }}
       />
@@ -175,6 +180,7 @@ function BottomTabNavigator() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: { height: 90 },
+        tabBarHideOnKeyboard: true,
       }}
     >
       <BottomTab.Screen
