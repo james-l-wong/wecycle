@@ -229,7 +229,7 @@ export default function TabTwoScreen() {
             <ModalCustom name={"Calling the Service"} context={showCallModal} setter={setShowCallModal} />
             <ModalCustom name={"Opening Email Application on your device"} context={showEmailModal} setter={setshowEmailModall} />
             <ModalCustom name={"Opening Website of the service"} context={showWebsiteModal} setter={setShowWebsiteModal} />
-            <ModalCustom name={"Saving the Service"} context={showSaveModal} setter={setshowSaveModal} />
+            <ModalCustom name={"Service saved"} context={showSaveModal} setter={setshowSaveModal} />
 
           </View>}
       </ScrollView>

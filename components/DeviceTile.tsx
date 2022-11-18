@@ -12,33 +12,40 @@ export default function DeviceTile({ title }: { title: string }) {
         console.log("title");
         title !== "Add"
           ? navigation.navigate("DeviceDetails", { test: title })
-          : navigation.navigate("Upload")
+          : navigation.navigate("Upload");
       }}
-          >
+    >
       <View style={[title === "Add" ? styles.addContainer : styles.container]}>
-          {title === "Add" ? (
-            <>
-              <AddIcon />
-            </>
-          ) : title === "iPhone" ? (
-            <Image
-              style={{
-                width: 47,
-                height: 100,
-              }}
-              source={require("../assets/images/iphone.png")}
-            />
-          ) : (
-            <Image
-              style={{
-                width: 47,
-                height: 100,
-              }}
-              source={require("../assets/images/fridge.png")}
-            />
-          )}
+        {title === "Add" ? (
+          <>
+            <AddIcon />
+          </>
+        ) : title === "iPhone" ? (
+          <Image
+            style={{
+              width: 47,
+              height: 100,
+            }}
+            source={require("../assets/images/iphone.png")}
+          />
+        ) : (
+          <Image
+            style={{
+              width: 47,
+              height: 100,
+            }}
+            source={require("../assets/images/fridge.png")}
+          />
+        )}
       </View>
-      <View style={{ alignItems: "center", width: 130, marginTop: 5 }}>
+      <View
+        style={{
+          alignItems: "center",
+          width: 130,
+          marginTop: 5,
+          backgroundColor: "#F0F0F0",
+        }}
+      >
         <Text>{title}</Text>
       </View>
     </Pressable>
