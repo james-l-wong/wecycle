@@ -9,12 +9,17 @@ import MapView from 'react-native-maps';
 import ModalCustom from "../components/ModalCustom"
 import { Modal, VStack, HStack, Radio } from "native-base";
 import { Input, Stack, Box, Center, NativeBaseProvider, extendTheme, FormControl, Checkbox, Button } from "native-base";
-import TabButtons from "../components/TabButtons";
+import TabButtons from "../components/Tabbuttons"
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import Call from "../assets/icons/Call"
 import Email from "../assets/icons/Email"
 import Website from "../assets/icons/Webstime"
 import Save from "../assets/icons/save"
+
+const s = () => {
+  console.log("Hi")
+}
+
 export default function TabTwoScreen() {
   const containerStyle = {
     width: '400px',
@@ -31,6 +36,7 @@ export default function TabTwoScreen() {
   })
 
   const [map, setMap] = React.useState(null)
+  const [rating, setRating] = useState(0);
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
@@ -49,15 +55,39 @@ export default function TabTwoScreen() {
   const [showEmailModal, setshowEmailModall] = useState(false);
   const [showSaveModal, setshowSaveModal] = useState(false);
 
-  const [showList, setShowList] = useState(true)
+  const [showList, setShowList] = useState(true);
+
+  function ContactOptions() {
+    return (
+      <View style={styles.cm2}>
+        <View style={{ width: 55, alignItems: "center" }}>
+          <Call onPress={() => setShowCallModal(true)} />
+          <Text style={{ fontSize: 8 }}> Call </Text>
+        </View>
+        <View style={{ width: 55, alignItems: "center" }}>
+          <Email onPress={() => setshowEmailModall(true)} />
+          <Text style={{ fontSize: 8 }}> Email </Text>
+        </View>
+        <View style={{ width: 55, alignItems: "center" }}>
+          <Website onPress={() => setShowWebsiteModal(true)} />
+          <Text style={{ fontSize: 8 }}> Website </Text>
+        </View>
+        <View style={{ width: 55, alignItems: "center" }}>
+          <Save onPress={() => setshowSaveModal(true)} />
+          <Text style={{ fontSize: 8 }}> Save </Text>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView>
 
-
-        <Text style={styles.title}>All availibile Services</Text>
-        <Text style={styles.normal}> View information about the services avaibile {'\n'} for your devices</Text>
-
+        <View style={{ marginLeft: 20 }}>
+          <Text style={styles.title}>All Available Services</Text>
+          <Text style={styles.normal}> View information about the services available {'\n'} for your devices</Text>
+        </View>
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
 
         </View>
@@ -82,7 +112,6 @@ export default function TabTwoScreen() {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: 'space-between',
-
               }}
             >
               <Image
@@ -107,27 +136,11 @@ export default function TabTwoScreen() {
                   <StarRating
                     rating="5"
                     color="#FFFFFF"
+                    onChange={setRating}
                   />
 
                 </View>
-                <View style={styles.cm2}>
-                  <View>
-                    <Call onPress={() => setShowCallModal(true)} />
-                    {/* <Text> Call </Text> */}
-                  </View>
-                  <View>
-                    <Email onPress={() => setshowEmailModall(true)} />
-                    {/* <Text> Email </Text> */}
-                  </View>
-                  <View>
-                    <Website onPress={() => setShowWebsiteModal(true)} />
-                    {/* <Text> Website </Text> */}
-                  </View>
-                  <View>
-                    <Save onPress={() => setshowSaveModal(true)} />
-                    {/* <Text fontSize="1"> Save </Text> */}
-                  </View>
-                </View>
+                <ContactOptions />
               </View>
             </View>
             <View
@@ -164,27 +177,11 @@ export default function TabTwoScreen() {
                   <StarRating
                     rating="3"
                     color="#FFFFFF"
+                    onChange={setRating}
                   />
 
                 </View>
-                <View style={styles.cm2}>
-                  <View>
-                    <Call onPress={() => setShowCallModal(true)} />
-                    {/* <Text> Call </Text> */}
-                  </View>
-                  <View>
-                    <Email onPress={() => setshowEmailModall(true)} />
-                    {/* <Text> Email </Text> */}
-                  </View>
-                  <View>
-                    <Website onPress={() => setShowWebsiteModal(true)} />
-                    {/* <Text> Website </Text> */}
-                  </View>
-                  <View>
-                    <Save onPress={() => setshowSaveModal(true)} />
-                    {/* <Text fontSize="1"> Save </Text> */}
-                  </View>
-                </View>
+                <ContactOptions />
               </View>
             </View>
             <View
@@ -222,29 +219,11 @@ export default function TabTwoScreen() {
                   <StarRating
                     rating="4"
                     color="#FFFFFF"
+                    onChange={setRating}
                   />
 
                 </View>
-                <View>
-                  <View style={styles.cm2}>
-                    <View>
-                      <Call onPress={() => setShowCallModal(true)} />
-                      {/* <Text> Call </Text> */}
-                    </View>
-                    <View>
-                      <Email onPress={() => setShowWebsiteModal(true)} />
-                      {/* <Text> Email </Text> */}
-                    </View>
-                    <View>
-                      <Website onPress={() => setshowEmailModall(true)} />
-                      {/* <Text> Website </Text> */}
-                    </View>
-                    <View>
-                      <Save onPress={() => setshowSaveModal(true)} />
-                      {/* <Text fontSize="1"> Save </Text> */}
-                    </View>
-                  </View>
-                </View>
+                <ContactOptions />
               </View>
             </View>
             <ModalCustom name={"Calling the Service"} context={showCallModal} setter={setShowCallModal} />
@@ -262,20 +241,20 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    height: 390,
+    width: 390,
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-    marginTop: 24
+    margin: 20,
 
   },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     width: "100%"
 
   },
@@ -284,15 +263,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "space-between",
     flexDirection: 'row',
+    padding: 4,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    margin: 10
+    marginTop: 10,
+
   },
 
   normal: {
-    margin: 8,
+    marginTop: 10,
+    marginBottom: 20,
+
   },
 
   separator: {

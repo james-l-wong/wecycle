@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, FlatList, Linking } from 'react-native';
 import {
   Text,
   Flex,
@@ -43,8 +43,14 @@ export default function Details() {
             316 Victoria Rd Rydalmere"
               marginTop={1}
               fontSize="md">
-              <Text bold>Location: </Text>City of Parramatta Rydalmere Operations Centre,
-              316 Victoria Rd Rydalmere</Text>
+              <Text bold>Location: </Text>
+              <Text
+                underline
+                color="blue.700"
+                onPress={() => Linking.openURL('https://goo.gl/maps/4iZ5ZzyXAHrviBDdA')}>
+                City of Parramatta Rydalmere Operations Centre, 316 Victoria Rd Rydalmere
+              </Text>
+            </Text>
             <Text
               marginTop={3}
               fontSize="md"

@@ -90,7 +90,7 @@ function RootNavigator() {
       <Stack.Screen
         name="ServiceList"
         component={ServiceList}
-        options={{ headerShown: true }}
+        options={{ headerShown: true, title: " " }}
       />
       <Stack.Screen
         name="Settings"
@@ -103,7 +103,7 @@ function RootNavigator() {
         options={{ headerShown: true }}
       />
       <Stack.Screen
-        name="UploadDevice"
+        name="Upload"
         component={UploadDevice}
         options={{ headerShown: true }}
       />
