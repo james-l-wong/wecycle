@@ -94,7 +94,6 @@ const guideDetails = [
 
 const GuideCard = ({id}: {id: number}) => {
   const navigation = useNavigation();
-  console.log(id)
 
     return (
     <Pressable

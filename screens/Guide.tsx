@@ -121,8 +121,6 @@ const GuideContent4 = () => {
 const Guide = ({route}) => {
   const {id} = route.params;
   let RenderGuideContent = null
-  console.log(id)
-  console.log(guideDetails);
 
   if (id === 0) {
     RenderGuideContent = GuideContent0;
