@@ -29,7 +29,7 @@ const guideDetails = [
   {
     title: "The e-waste problem",
     image: {
-      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo6Ql3vLNH57X9WwxMpQE3L-uIJvGmTaYewg&usqp=CAU",
+      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRz64GdTI0Tlic4IsdJLtbQAeAPMshW7TEmw&usqp=CAU",
       alt: 'alt-text'
     },
     author: 'John Doe',
@@ -47,7 +47,7 @@ const guideDetails = [
   {
     title: "How to deal with e-waste",
     image: {
-      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsenp_OUYuDl2EbN7sPV94y9_YOkpOjRYgLw&usqp=CAU",
+      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo6Ql3vLNH57X9WwxMpQE3L-uIJvGmTaYewg&usqp=CAU",
       alt: 'alt-text'
     },
     author: 'Jane Doe',
@@ -56,7 +56,7 @@ const guideDetails = [
   {
     title: "More tips and information for recycling e-waste",
     image: {
-      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+      uri: "https://ecocycle.com.au/wp-content/uploads/2019/11/Why-do-we-recycle-e-waste.jpg",
       alt: 'alt-text'
     },
     author: 'John Smith',
