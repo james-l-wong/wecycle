@@ -288,7 +288,7 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
-    height: 390,
+    height: 500,
     width: 390,
     // justifyContent: 'flex-end',
     // alignItems: 'center',
