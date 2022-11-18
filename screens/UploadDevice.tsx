@@ -1,4 +1,5 @@
-import { StyleSheet, ScrollView , Image, TouchableOpacity} from 'react-native';
+import { Pressable } from "react-native";
+import { StyleSheet, ScrollView , Image, TouchableOpacity, } from 'react-native';
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import ModalCustom from "../components/ModalCustom"
@@ -26,24 +27,21 @@ export default function TabTwoScreen() {
       <ScrollView> 
       <Text style={styles.title}>Enter Device Details </Text>
       <View style={styles.con2}> 
+      <Pressable onPress={() => setshowModel(true)}  accessible={true}
+        accessibilityLabel="Upload Picture Button" > 
         <Image
           style={{
             width: 120,
             height: 120,
             borderRadius: 0,
             marginRight: 10,
-          }} onPress={() => setshowModel(true)} 
+          }} 
           source={require("../assets/images/PhotoUpload.png")}
-        />
+        /> 
+        </Pressable>
         {/* <Button borderRadius="15">+</Button> */}
-        <TouchableOpacity
-        accessible={true}
-        accessibilityLabel="Upload Picture Button"
-        onPress={() => setshowModel(true)}
-        style={[{borderRadius: 20, height: 25, width: 25, justifyContent: "center", alignItems: "center"},{backgroundColor: "#708B75"}]}>
-        <Text style={{color:  "white" , fontWeight: "bold", fontSize: 18}}>+</Text>
-      </TouchableOpacity>
-        <Box marginLeft="1.5" paddingLeft= "1" backgroundColor = "#708B75" minH = "89px" minWidth= "181px" maxH = "89px" maxWidth= "181px" borderRadius="12" > <Text style={styles.texts} > Take picture of your device so 75% of it fits the screen</Text> </Box>
+      
+        <Box marginLeft="1.5" paddingLeft= "1" backgroundColor = "#708B75" minH = "89px" minWidth= "181px" maxH = "89px" maxWidth= "181px" borderRadius="12" > <Text style={styles.texts} > Take picture of your device so 75% of it fits on the screen</Text> </Box>
       </View>
       <Box height = "100%" style = {styles2.container}>  
       <FormControl isInvalid w="90%" maxW="390px" marginBottom= "30px">
