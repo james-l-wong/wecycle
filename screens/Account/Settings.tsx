@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, Pressable, StyleSheet } from "react-native";
 import { View } from "../../components/Themed";
-import { Button, Input, Text } from "native-base";
+import { Button, Icon, Input, Text } from "native-base";
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function Settings() {
   const [counter, setCounter] = useState(12);
+  const [show1, setShow1] = React.useState(false);
+  const [show2, setShow2] = React.useState(false);
+  const [show3, setShow3] = React.useState(false);
 
   return (
     <View style={styles.container}>
@@ -103,31 +107,73 @@ export default function Settings() {
         }}
       >
         <Input
-          size="md"
           w={{
             base: "70%",
+            md: "25%",
           }}
-          variant="outline"
-          placeholder="Current Password"
+          type={show1 ? "text" : "password"}
+          InputRightElement={
+            <Pressable onPress={() => setShow1(!show1)}>
+              <Icon
+                as={
+                  <MaterialIcons
+                    name={show1 ? "visibility" : "visibility-off"}
+                  />
+                }
+                size={5}
+                mr="2"
+                color="muted.400"
+              />
+            </Pressable>
+          }
+          placeholder="Password"
         />
         <View style={{ marginTop: 10, marginBottom: 10 }}>
           <Input
-            size="md"
             w={{
               base: "70%",
+              md: "25%",
             }}
-            variant="outline"
-            placeholder="New Password"
+            type={show2 ? "text" : "password"}
+            InputRightElement={
+              <Pressable onPress={() => setShow2(!show2)}>
+                <Icon
+                  as={
+                    <MaterialIcons
+                      name={show2 ? "visibility" : "visibility-off"}
+                    />
+                  }
+                  size={5}
+                  mr="2"
+                  color="muted.400"
+                />
+              </Pressable>
+            }
+            placeholder="Password"
           />
         </View>
         <View style={{ marginBottom: 10 }}>
           <Input
-            size="md"
             w={{
               base: "70%",
+              md: "25%",
             }}
-            variant="outline"
-            placeholder="Confirm New Password"
+            type={show3 ? "text" : "password"}
+            InputRightElement={
+              <Pressable onPress={() => setShow3(!show3)}>
+                <Icon
+                  as={
+                    <MaterialIcons
+                      name={show3 ? "visibility" : "visibility-off"}
+                    />
+                  }
+                  size={5}
+                  mr="2"
+                  color="muted.400"
+                />
+              </Pressable>
+            }
+            placeholder="Password"
           />
         </View>
         <Button
