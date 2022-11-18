@@ -5,7 +5,7 @@ import { View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import Carousel from "react-native-reanimated-carousel";
 import DeviceTile from "../components/DeviceTile";
-import { Pressable, Text } from "native-base";
+import { Pressable, ScrollView, Text } from "native-base";
 import PointsDisplay from "../components/PointsDisplay";
 import GuideCard from "../components/GuideCard";
 import { useNavigation } from "@react-navigation/native";
@@ -18,9 +18,10 @@ export default function TabOneScreen({
   vouchers: number;
 }) {
   const width = Dimensions.get("window").width;
+  // const height = Dimensions.get("window").height;
   // const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <PointsDisplay points={points} vouchers={vouchers} />
       <Text
         accessible={true}
@@ -61,15 +62,17 @@ export default function TabOneScreen({
         </Pressable> */}
       </View>
       <View accessible={true} accessibilityLabel="Featured Guide">
-        <GuideCard id={2}/>
+        <GuideCard id={2} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: 1000,
+    backgroundColor: "red",
     // alignItems: "center",
     // justifyContent: "center",
   },
