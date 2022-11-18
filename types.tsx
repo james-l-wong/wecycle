@@ -25,7 +25,7 @@ export type RootStackParamList = {
   Vouchers: undefined;
   Barcode: undefined;
   Settings: undefined;
-  UploadDevice: undefined;
+  Upload: undefined;
   ServiceList: undefined;
 };
 

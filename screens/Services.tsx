@@ -54,10 +54,10 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
      <ScrollView> 
     
-        
-      <Text style={styles.title}>All availibile Services</Text> 
-      <Text style = {styles.normal}> View information about the services avaibile {'\n'} for your devices</Text>
-
+      <View style= {{marginLeft:20}}>  
+      <Text style={styles.title}>All Available Services</Text> 
+      <Text style = {styles.normal}> View information about the services available {'\n'} for your devices</Text>
+      </View>
       <View style={{ flexDirection: "row", justifyContent: "center"}}>
       
     </View>
@@ -221,22 +221,22 @@ export default function TabTwoScreen() {
         </View>
         <View>
         <View style = {styles.cm2}>
-          <View> 
+          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
             <Call onPress={() => setShowCallModal(true)} /> 
-          {/* <Text> Call </Text> */}
-          </View>
-          <View> 
+          {/* <Text> Call </Text>
+          </View> */}
+          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
             <Email onPress={() => setShowWebsiteModal(true)} /> 
-          {/* <Text> Email </Text> */}
-          </View>
-          <View> 
+          {/* <Text> Email </Text>
+          </View> */}
+          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
             <Website onPress={() => setshowEmailModall(true)} /> 
-          {/* <Text> Website </Text> */}
-          </View>
-          <View> 
+          {/* <Text> Website </Text>
+          </View> */}
+          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
             <Save onPress={() => setshowSaveModal(true)} /> 
-          {/* <Text fontSize="1"> Save </Text> */}
-          </View>
+          {/* <Text fontSize="1"> Save </Text>
+          </View> */}
         </View>
         </View>
         </View>
@@ -256,20 +256,20 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    height: 390,
+    width: 390,
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-    marginTop:24
+    margin:20,
 
   },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     width:"100%"
     
   },
@@ -278,15 +278,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "space-between",
     flexDirection: 'row',
+    padding:4
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    margin: 10
+    marginTop: 10,
+   
   },
 
   normal: {
-    margin: 8,
+    marginTop: 10,
+    marginBottom:20,
+   
   },
 
   separator: {

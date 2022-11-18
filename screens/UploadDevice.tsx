@@ -1,6 +1,7 @@
 import { StyleSheet, ScrollView , Image, TouchableOpacity} from 'react-native';
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import ModalCustom from "../components/ModalCustom"
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -8,6 +9,8 @@ import { Select } from "native-base";
 import { Input, Stack, Box, Center, NativeBaseProvider, FormControl, Checkbox, Button} from "native-base";
 import { CheckIcon } from "native-base";
 import Services from "../screens/Services";
+import { useState } from "react";
+
 
 export default function TabTwoScreen() {
   const [service, setService] = React.useState("");
@@ -15,7 +18,8 @@ export default function TabTwoScreen() {
   const year2 = "< 3 years"
   const year3 = "> 3 years"
   const navigation = useNavigation();
-
+  const [showModel, setshowModel] = useState(false);
+ 
   return (
 
     <View style={styles.container}>
@@ -28,18 +32,18 @@ export default function TabTwoScreen() {
             height: 120,
             borderRadius: 0,
             marginRight: 10,
-          }}
+          }} onPress={() => setshowModel(true)} 
           source={require("../assets/images/PhotoUpload.png")}
         />
         {/* <Button borderRadius="15">+</Button> */}
         <TouchableOpacity
         accessible={true}
         accessibilityLabel="Upload Picture Button"
-        onPress={()=>setShowList(true)}
-        style={[{borderRadius: 15, height: 40, width: 25, justifyContent: "center", alignItems: "center"},{backgroundColor: "#708B75"}]}>
+        onPress={() => setshowModel(true)}
+        style={[{borderRadius: 20, height: 25, width: 25, justifyContent: "center", alignItems: "center"},{backgroundColor: "#708B75"}]}>
         <Text style={{color:  "white" , fontWeight: "bold", fontSize: 18}}>+</Text>
       </TouchableOpacity>
-        <Box marginLeft="1.5" paddingLeft= "1" backgroundColor = "#708B75" minH = "89px" minWidth= "181px" maxH = "89px" maxWidth= "181px" borderRadius="12" > <Text style={styles.texts} > Place your device on a flat surface and take a picture of it from 15 cms </Text> </Box>
+        <Box marginLeft="1.5" paddingLeft= "1" backgroundColor = "#708B75" minH = "89px" minWidth= "181px" maxH = "89px" maxWidth= "181px" borderRadius="12" > <Text style={styles.texts} > Take picture of your device so 75% of it fits the screen</Text> </Box>
       </View>
       <Box height = "100%" style = {styles2.container}>  
       <FormControl isInvalid w="90%" maxW="390px" marginBottom= "30px">
@@ -125,6 +129,8 @@ export default function TabTwoScreen() {
 
   
     </Box>
+    <ModalCustom name={"Opening Camera"} context = {showModel} setter = {setshowModel}/>
+
     <Center flex={1} px="3" marginTop= "30px">
                 {/* <Button size={"lg"} borderRadius="10" onPress={() => { document.location.href = "Services.tsx"; }}> Submit </Button> */}
                 <TouchableOpacity
