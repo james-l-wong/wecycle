@@ -42,6 +42,7 @@ import DeviceDetails from "../screens/DeviceDetails";
 import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
 import Details from "../screens/Details";
 import Guide from "../screens/Guide";
+import { VStack, Badge } from "native-base";
 
 export default function Navigation({
   colorScheme,
@@ -207,6 +208,14 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
+              <VStack>
+                <Badge // bg="red.400"
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                    fontSize: 11
+                  }}>
+                  2
+                </Badge>
+              </VStack>
               <Pressable
                 onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
@@ -276,6 +285,14 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
+              <VStack>
+                <Badge // bg="red.400"
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                    fontSize: 11
+                  }}>
+                  2
+                </Badge>
+              </VStack>
               <Pressable
                 onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
@@ -345,6 +362,14 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
+              <VStack>
+                <Badge // bg="red.400"
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                    fontSize: 11
+                  }}>
+                  2
+                </Badge>
+              </VStack>
               <Pressable
                 onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
@@ -416,6 +441,14 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
+              <VStack>
+                <Badge // bg="red.400"
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                    fontSize: 11
+                  }}>
+                  2
+                </Badge>
+              </VStack>
               <Pressable
                 onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
