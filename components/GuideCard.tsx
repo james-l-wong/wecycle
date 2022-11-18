@@ -37,7 +37,6 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
  * static elements? Since there is no backend/way or need to add in props?
  */
 
-const image0 = require('../assets/images/ewaste-dump.jpg');
 
 const guideDetails = [
   {
