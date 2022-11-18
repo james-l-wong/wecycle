@@ -49,7 +49,31 @@ export default function TabTwoScreen() {
   const [showEmailModal, setshowEmailModall] = useState(false);
   const [showSaveModal, setshowSaveModal] = useState(false);
 
-  const [showList,setShowList] = useState(true)
+  const [showList,setShowList] = useState(true);
+
+  function ContactOptions() {
+    return (
+      <View style = {styles.cm2}>
+          <View style={{width: 55, alignItems: "center"}}> 
+            <Call onPress={() => setShowCallModal(true)} /> 
+          <Text style={{fontSize: 8}}> Call </Text>
+          </View>
+          <View style={{width: 55, alignItems: "center"}}> 
+            <Email onPress={() => setshowEmailModall(true)} /> 
+          <Text style={{fontSize: 8}}> Email </Text>
+          </View>
+          <View style={{width: 55, alignItems: "center"}}> 
+            <Website onPress={() => setShowWebsiteModal(true)} /> 
+          <Text style={{fontSize: 8}}> Website </Text>
+          </View>
+          <View style={{width: 55, alignItems: "center"}}> 
+            <Save onPress={() => setshowSaveModal(true)} /> 
+          <Text style={{fontSize: 8}}> Save </Text>
+          </View>
+        </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
      <ScrollView> 
@@ -82,7 +106,6 @@ export default function TabTwoScreen() {
           display: "flex",
           flexDirection: "row",
           justifyContent: 'space-between',
-           
         }}
       >
         <Image
@@ -96,7 +119,7 @@ export default function TabTwoScreen() {
         />
         <View style = {{display: "flex",
           flexDirection: "column",}}> 
-        <View style={{ backgroundColor: "#444B6E",  borderRadius:"10" , padding:15, justifyContent: 'center'}}>
+        <View style={{ backgroundColor: "#444B6E",  borderRadius: 10 , padding:15, justifyContent: 'center'}}>
          
             <Text style={styles.text}>Trade Electronics</Text>
             <Text style={styles.text}>
@@ -108,24 +131,7 @@ export default function TabTwoScreen() {
         />
          
         </View>
-        <View style = {styles.cm2}>
-          <View> 
-            <Call onPress={() => setShowCallModal(true)} /> 
-          {/* <Text> Call </Text> */}
-          </View>
-          <View> 
-            <Email onPress={() => setshowEmailModall(true)} /> 
-          {/* <Text> Email </Text> */}
-          </View>
-          <View> 
-            <Website onPress={() => setShowWebsiteModal(true)} /> 
-          {/* <Text> Website </Text> */}
-          </View>
-          <View> 
-            <Save onPress={() => setshowSaveModal(true)} /> 
-          {/* <Text fontSize="1"> Save </Text> */}
-          </View>
-        </View>
+        <ContactOptions/>
         </View>
       </View>
       <View
@@ -151,7 +157,7 @@ export default function TabTwoScreen() {
         />
         <View style = {{display: "flex",
           flexDirection: "column",}}> 
-        <View style={{ backgroundColor: "#444B6E",  borderRadius:"10" , padding:15, justifyContent: 'center'}}>
+        <View style={{ backgroundColor: "#444B6E",  borderRadius: 10 , padding:15, justifyContent: 'center'}}>
          
             <Text style={styles.text}>Redditor - iBuyFone3</Text>
             <Text style={styles.text}>
@@ -163,24 +169,7 @@ export default function TabTwoScreen() {
         />
          
         </View>
-        <View style = {styles.cm2}>
-          <View> 
-            <Call onPress={() => setShowCallModal(true)} /> 
-          {/* <Text> Call </Text> */}
-          </View>
-          <View> 
-            <Email onPress={() => setshowEmailModall(true)} /> 
-          {/* <Text> Email </Text> */}
-          </View>
-          <View> 
-            <Website onPress={() => setShowWebsiteModal(true)} /> 
-          {/* <Text> Website </Text> */}
-          </View>
-          <View> 
-            <Save onPress={() => setshowSaveModal(true)} /> 
-          {/* <Text fontSize="1"> Save </Text> */}
-          </View>
-        </View>
+        <ContactOptions/>
         </View>
       </View>
       <View
@@ -207,7 +196,7 @@ export default function TabTwoScreen() {
         />
         <View style = {{display: "flex",
           flexDirection: "column",}}> 
-        <View style={{ backgroundColor: "#444B6E",  borderRadius:"10" , padding:15, justifyContent: 'center'}}>
+        <View style={{ backgroundColor: "#444B6E",  borderRadius: 10 , padding:15, justifyContent: 'center'}}>
          
             <Text style={styles.text}>Parramatta e-Waste</Text>
             <Text style={styles.text}>
@@ -219,26 +208,7 @@ export default function TabTwoScreen() {
         />
          
         </View>
-        <View>
-        <View style = {styles.cm2}>
-          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
-            <Call onPress={() => setShowCallModal(true)} /> 
-          {/* <Text> Call </Text>
-          </View> */}
-          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
-            <Email onPress={() => setShowWebsiteModal(true)} /> 
-          {/* <Text> Email </Text>
-          </View> */}
-          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
-            <Website onPress={() => setshowEmailModall(true)} /> 
-          {/* <Text> Website </Text>
-          </View> */}
-          {/* <View style={{height:15,width:15, alignItems: 'center'}}>  */}
-            <Save onPress={() => setshowSaveModal(true)} /> 
-          {/* <Text fontSize="1"> Save </Text>
-          </View> */}
-        </View>
-        </View>
+        <ContactOptions/>
         </View>
       </View>
       <ModalCustom name={"Calling the Service"} context = {showCallModal} setter = {setShowCallModal}/>
@@ -278,7 +248,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "space-between",
     flexDirection: 'row',
-    padding:4
+    padding:4,
   },
   title: {
     fontSize: 20,
