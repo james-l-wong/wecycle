@@ -43,7 +43,7 @@ export default function TabOneScreen({
         Featured Guide
       </Text>
       <View accessible={true} accessibilityLabel="Featured Guide">
-        <GuideCard />
+        <GuideCard id={2}/>
       </View>
     </View>
   );

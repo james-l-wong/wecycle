@@ -22,7 +22,6 @@ const SearchBar = ({ setText }: { setText: (newText: string) => void}) => {
       <VStack w="100%"  space={5} alignSelf="center">
         <Input
             placeholder="Search"
-            style={{ backgroundColor:"#708B75" }}
             onChangeText={newText => setText(newText)}
             variant="filled"
             width="100%"

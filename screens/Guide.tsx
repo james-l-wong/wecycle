@@ -29,52 +29,47 @@ const guideDetails = [
   {
     title: "The e-waste problem",
     image: {
-      uri: 'uri',
+      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text',
-    author: 'bob brwom',
-    postedOn: '18/11/2022',
+    author: 'John Doe',
+    date: '12/11/2022',
   },
   {
     title: "What's being done about e-waste",
     image: {
-      uri: 'uri',
+      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text',
-    author: 'bob brwom',
-    postedOn: '18/11/2022',
+    author: 'Joe Blow',
+    date: '15/11/2022',
   },
   {
     title: "How to deal with e-waste",
     image: {
-      uri: 'uri',
+      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text',
-    author: 'bob brwom',
-    postedOn: '18/11/2022',
+    author: 'Jane Doe',
+    date: '16/11/2022',
   },
   {
     title: "More tips and information for recycling e-waste",
     image: {
-      uri: 'uri',
+      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'another summary text',
-    author: 'jane brwom',
-    postedOn: '17/11/2022',
+    author: 'John Smith',
+    date: '17/11/2022',
   },
   {
     title: "How to securely remove data before disposing of e-waste",
     image: {
-      uri: 'uri',
+      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text',
-    author: 'bob brwom',
-    postedOn: '18/11/2022',
+    author: 'Bob Brown',
+    date: '18/11/2022',
   },
 ];
 
@@ -88,22 +83,59 @@ const GuideContent0 = () => {
 
 const GuideContent1 = () => {
   return (
-    <Box>
-      paragraphs and stuff
-    </Box>
+    <NativeBaseText fontWeight="400">
+    Bengaluru (also called Bangalore) is the center of India's high-tech
+    industry. The city is also known for its parks and nightlife.
+    </NativeBaseText>
+  )
+};
+
+
+const GuideContent2 = () => {
+  return (
+    <NativeBaseText fontWeight="400">
+    Bengaluru (also called Bangalore) is the center of India's high-tech
+    industry. The city is also known for its parks and nightlife.
+    </NativeBaseText>
+  )
+};
+
+const GuideContent3 = () => {
+  return (
+    <NativeBaseText fontWeight="400">
+    Bengaluru (also called Bangalore) is the center of India's high-tech
+    industry. The city is also known for its parks and nightlife.
+    </NativeBaseText>
+  )
+};
+
+const GuideContent4 = () => {
+  return (
+    <NativeBaseText fontWeight="400">
+    Bengaluru (also called Bangalore) is the center of India's high-tech
+    industry. The city is also known for its parks and nightlife.
+    </NativeBaseText>
   )
 };
 
 const Guide = ({route}) => {
   const {id} = route.params;
-  let renderGuideContent = null;
+  let RenderGuideContent = null
   console.log(id)
   console.log(guideDetails);
 
   if (id === 0) {
-    renderGuideContent = GuideContent0;
+    RenderGuideContent = GuideContent0;
   } else if (id === 1) {
-    renderGuideContent = GuideContent1;
+    RenderGuideContent = GuideContent1;
+  } else if (id === 2) {
+    RenderGuideContent = GuideContent1;
+  } else if (id === 3) {
+    RenderGuideContent = GuideContent1;
+  } else if (id === 4) {
+    RenderGuideContent = GuideContent1;
+  } else {
+    RenderGuideContent = "Error: This guide has no content, please visit another gudie"
   }
   /**
    * TODO Do the same for the rest of the id to render the content in a guide
@@ -126,43 +158,29 @@ const Guide = ({route}) => {
         <Stack p="4" space={3}>
             <Stack space={2}>
             <Heading size="md" ml="-1">
-                The Garden City
+                {guideDetails[id].title}
             </Heading>
-            <NativeBaseText
-                fontSize="xs"
-                _light={{
-                color: "violet.500"
-                }} _dark={{
-                color: "violet.400"
-                }}
-                fontWeight="500"
-                ml="-0.5"
-                mt="-1"
-            >
-                The Silicon Valley of India. Remove this and make heading colour green?
-            </NativeBaseText>
+            <HStack alignItems="center" space={4} justifyContent="space-between">
+              <HStack alignItems="center" fontSize={10}>
+                  <NativeBaseText
+                  color="#708B75"
+                  _dark={{
+                      color: "warmGray.200"
+                  }}
+                  fontWeight="400"
+                  >
+                  {guideDetails[id].date}
+                  </NativeBaseText>
+                  <Spacer />
+                  <NativeBaseText color="coolGray.800" _dark={{color: "warmGray.200"}}>
+                  {guideDetails[id].author}
+                  </NativeBaseText>
+              </HStack>
+            </HStack>
             </Stack>
             <NativeBaseText fontWeight="400">
-            Bengaluru (also called Bangalore) is the center of India's high-tech
-            industry. The city is also known for its parks and nightlife.
+              <RenderGuideContent />
             </NativeBaseText>
-            <HStack alignItems="center" space={4} justifyContent="space-between">
-            <HStack alignItems="center" fontSize={10}>
-                <NativeBaseText
-                color="coolGray.600"
-                _dark={{
-                    color: "warmGray.200"
-                }}
-                fontWeight="400"
-                >
-                6 mins ago
-                </NativeBaseText>
-                <Spacer />
-                <NativeBaseText color="coolGray.800" _dark={{color: "warmGray.200"}}>
-                Author name
-                </NativeBaseText>
-            </HStack>
-            </HStack>
         </Stack>
     </Box>);
   };
