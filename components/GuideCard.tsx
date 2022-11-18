@@ -155,6 +155,10 @@ const GuideCard = ({id}: {id: number}) => {
               </NativeBaseText>
               <HStack alignItems="center" space={4} justifyContent="space-between">
                 <HStack alignItems="center" fontSize={10}>
+                  <NativeBaseText italic color="coolGray.800" _dark={{color: "warmGray.200"}}>
+                  Written by {guideDetails[id].author}
+                  </NativeBaseText>
+                  <Spacer />
                   <NativeBaseText
                     color="#708B75"
                     _dark={{
@@ -164,10 +168,6 @@ const GuideCard = ({id}: {id: number}) => {
                     style={styles.smallTextMargin}
                   >
                     {guideDetails[id].date}
-                  </NativeBaseText>
-                  <Spacer />
-                  <NativeBaseText color="coolGray.800" _dark={{color: "warmGray.200"}}>
-                  {guideDetails[id].author}
                   </NativeBaseText>
                 </HStack>
               </HStack>

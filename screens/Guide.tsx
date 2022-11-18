@@ -12,6 +12,7 @@ import {
   Pressable,
   Spacer,
 } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 
 /**
  * Each guide will have a title, body, summary, thumbnail, author and date
@@ -75,46 +76,173 @@ const guideDetails = [
 
 const GuideContent0 = () => {
   return (
-    <Box>
-      paragraphs and stuff
-    </Box>
+    <>
+      <Heading size="lg" ml="-1">
+        What is e-waste? {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      E-waste is the term given to discarded electrical and electronic technologies; it includes, but is not limited to:{"\n"}
+      • computers, laptops and tablets{"\n"}
+      • televisions{"\n"}
+      • mobile phones{"\n"}
+      • digital cameras{"\n"}
+      • printers and photocopiers{"\n"}
+      • fax machines{"\n"}
+      • USBs.{"\n"}
+      Such equipment may or may not be in working order. With technology constantly being upgraded, disposal of outdated electronic equipment is occurring frequently. E-waste has accumulated at such a rapid rate that it has become the fastest growing form of waste in Australia. A total of 106 000 tonnes of e-waste had been dumped into landfill across Australia by 2008. By 2028 this figure is expected to rise to 181 000 tonnes.1 Until recently, e-waste has not been disposed of in the most efficient and environmentally sound manner.  
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}Why is e-waste a problem? {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Australians are among the highest users of new technology, and e-waste from obsolete electronic goods is one of the fastest growing types of waste.2  E-waste now makes up 5% of all municipal solid waste worldwide, nearly the same amount as all plastic packaging, but it is more hazardous.{"\n"}{"\n"} E-waste has a negative impact on our environment and is putting pressure on limited landfill capacity in Australia and around the world.{"\n"}{"\n"} Electronic technology includes toxic and harmful materials that to date have not been disposed of efficiently or safely. Treating e-waste correctly will help minimise pollution, protect our environment and reduce our carbon footprint.{"\n"}{"\n"} Many of the materials that make up electronic technology can be recycled for other uses. For example, 90% of the materials in a mobile phone handset can be recovered and reused. Sixty per cent to 90% of future greenhouse gas emissions can be avoided by using these recycled materials.
+      </NativeBaseText>
+    </>
   )
 };
 
 const GuideContent1 = () => {
   return (
-    <NativeBaseText fontWeight="400">
-    Bengaluru (also called Bangalore) is the center of India's high-tech
-    industry. The city is also known for its parks and nightlife.
-    </NativeBaseText>
+    <>
+      <Heading size="lg" ml="-1">
+      {"\n"}What happens e-waste? {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Electronic waste contains many components that can be recycled and reused. These resources, such as plastics and glass, can be recovered to manufacture new products. Once hazardous materials like bromine, lead, mercury and zinc are removed, the remaining components, such as cables, metals and circuit boards, can be recycled.{"\n"}{"\n"} Unfortunately, e-waste is not always disposed of in an environmentally friendly way and at times has been dumped as hazardous waste. A staggering amount of e-waste from developed countries is being exported and dumped in developing countries such as Ghana. This is an illegal trade that is being investigated by the Australian government, and the national Hazardous Waste Act is under review to ensure that everything is being done to cease this trade. It is important to know what is happening to your e-waste and ensure it is being recycled by a reputable organisation.{"\n"}{"\n"} The National Television and Computer Recycling Scheme also aims to improve the recycling of these materials, minimising the solid and hazardous waste that ends up in landfill. This helps reduce the need to use raw materials and essentially assists in saving our natural resources.{"\n"}{"\n"} Before you discard your old computer, consider whether it is still in good working order. Perhaps, instead of being disposed of, it could be donated to a local community group or charity. 
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+        What is the Australian government doing about e-waste? {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      In response to the accumulating waste across the nation, the Australian government, with input from industry, business and the community, has developed the National Waste Policy.5 This policy is a nationwide waste management plan within which the National Television and Computer Recycling Scheme has been developed. This scheme began in 2011 and is steadily being rolled out nationally. This national e-waste recycling scheme has signed up service providers to administer free collection and recycling services for computers, printers, televisions and other electronics from households and businesses. The scheme is supported by legislation that ensures all manufacturers and importers of televisions and computers are taking responsibility for their electronic products.{"\n"}{"\n"} As part of the scheme, companies that produce and/or import computers and televisions into Australia will be required to pay for and arrange the collection and end-of-life recycling of their products. An Australian standard for e-waste recycling will be established and implemented within the National Waste Policy.{"\n"}{"\n"} The National Television and Computer Recycling Scheme is already available as well as other sustainable e-waste recycling options.{"\n"}{"\n"} The e-waste recycling scheme supports free pick-up of electronics from households and businesses, and ideally will help increase television and computer recycling rates from only 17% in 2010 to 80% by 2021.
+      </NativeBaseText>
+    </>
   )
 };
 
-
 const GuideContent2 = () => {
   return (
-    <NativeBaseText fontWeight="400">
-    Bengaluru (also called Bangalore) is the center of India's high-tech
-    industry. The city is also known for its parks and nightlife.
-    </NativeBaseText>
+    <>
+      <Heading size="lg" ml="-1">
+        How do I dispose of or recycle e-waste?{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Correctly disposing of e-waste ensures that hazardous materials can be treated appropriately and the recyclable components can be recovered for re-use.{"\n"}{"\n"} Many councils hold e-waste collections, so contact yours about their collections and other preferred disposal methods.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}Consider re-use{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      All electronics collected by us are processed locally where around 95% is recycled. Electronics are broken down into various parts, including metals, plastics, batteries, cabling and circuit boards. These parts can then be used to make new products.{"\n"}{"\n"} Over 90% of mobile phone contents, which includes gold, silver and palladium, can be recovered and returned into the supply chain to make new products. The plastic in many electronics and devices can be recycled into new plastic products, such as shipping pallets. Battery materials such as mercury, lithium and zinc can be recycled over and over again to make new batteries.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}After you finish{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Australians are among the highest users of new technology, and e-waste from obsolete electronic goods is one of the fastest growing types of waste.2  E-waste now makes up 5% of all municipal solid waste worldwide, nearly the same amount as all plastic packaging, but it is more hazardous. E-waste has a negative impact on our environment and is putting pressure on limited landfill capacity in Australia and around the world. Electronic technology includes toxic and harmful materials that to date have not been disposed of efficiently or safely. Treating e-waste correctly will help minimise pollution, protect our environment and reduce our carbon footprint. Many of the materials that make up electronic technology can be recycled for other uses. For example, 90% of the materials in a mobile phone handset can be recovered and reused. Sixty per cent to 90% of future greenhouse gas emissions can be avoided by using these recycled materials.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}Why it's important to recycle electronics{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Australians are among the highest users of electronics in the world, and unwanted electronics are one of the fastest growing types of waste.{"\n"}{"\n"} Recycling your unwanted electronics helps capture precious resources, which reduces the need to mine raw materials for new technology. The electronics we collect are diverted from landfill and raw materials are recovered and recycled.
+      </NativeBaseText>
+    </>
   )
 };
 
 const GuideContent3 = () => {
   return (
-    <NativeBaseText fontWeight="400">
-    Bengaluru (also called Bangalore) is the center of India's high-tech
-    industry. The city is also known for its parks and nightlife.
-    </NativeBaseText>
+    <>
+      <NativeBaseText fontWeight="400">
+      How often do you upgrade your phone, change your appliances, and replace your electronics at work or at home? Most of us don't think about the environmental considerations when we purchase the latest iPhone or the next-generation LCD TV, but how we dispose of e-waste has a major impact on the environment. If you're upgrading your electronics, follow these tips to recycle your electronic waste responsibly.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}4 ways to recycle your electronic waste responsibly{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Never dispose of your e-waste in the bin, and this applies to batteries as well. These items contain toxic substances that can contaminate landfills.
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}1. If the device is still working{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      If it's a working phone or device, don't recycle it. Maximise its lifecycle by donating it to a needy cause. Look for organisations like Work Ventures and Computer Bank Hunter who will put your legacy electronics to good use.
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}2. Find a responsible recycling service{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Find a responsible recycler near you if the device is not working. Because a lot of e-waste is shipped to landfills in developing nations for sorting or burning, it's important to check with your recycling service. Ask them how the e-waste will be dealt with, and whether they have any certifications or if they recycle in accordance with strict standards. It's worthwhile finding one that processes your e-waste in a responsible manner, with minimal impact on human health and the environment
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}3. Explore your local recycling options{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Get to know the options available in your area. You might be able to drop off your e-waste or have it collected. Find out who's accepting your old electronics, and check with the manufacturer to see if they'd take the used items back. For example, brands like Apple, with its Renew program, lets consumers recycle devices in their stores or online. Some retailers like Harvey Norman will take back old TVs and other e-waste if you're buying a new one from them. Phones tend to be easy to recycle as recyclers will often have a free mail-in service and you don't have to drop it off or arrange a collection.
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}4. Set a e-waste recycling policy{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      If you're a business, have a recycling policy for your workplace e-waste. Large organisations can benefit from having a waste audit and setting targets to reduce your e-waste. You'll want to include secure-erase processes in your policy, to protect private and confidential information. {"\n"}Where possible, consume less. When you do have to upgrade your devices and appliances, make it a priority to recycle your old equipment in a responsible manner. Explore your options and find an accredited recycler or one whose process conforms to strict standards. By ensuring your e-waste is recycled carefully, you'll support a healthier planet.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}4 reasons to recycle  electronic waste responsibly{"\n"}
+      </Heading>
+      <Heading size="md" ml="-1">
+        1. Reduce the amount of toxins in the environment{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      If it's a working phone or device, don't recycle it. Maximise its lifecycle by donating it to a needy cause. Look for organisations like Work Ventures and Computer Bank Hunter who will put your legacy electronics to good use.
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}2. Divert waste from landfills{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Find a responsible recycler near you if the device is not working. Because a lot of e-waste is shipped to landfills in developing nations for sorting or burning, it's important to check with your recycling service. Ask them how the e-waste will be dealt with, and whether they have any certifications or if they recycle in accordance with strict standards. It's worthwhile finding one that processes your e-waste in a responsible manner, with minimal impact on human health and the environment
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}3. Repurposing electronics and metals{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Get to know the options available in your area. You might be able to drop off your e-waste or have it collected. Find out who's accepting your old electronics, and check with the manufacturer to see if they'd take the used items back. For example, brands like Apple, with its Renew program, lets consumers recycle devices in their stores or online. Some retailers like Harvey Norman will take back old TVs and other e-waste if you're buying a new one from them. Phones tend to be easy to recycle as recyclers will often have a free mail-in service and you don't have to drop it off or arrange a collection.
+      </NativeBaseText>
+      <Heading size="md" ml="-1">
+        {"\n"}4. A positive impact on human health{"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      If you're a business, have a recycling policy for your workplace e-waste. Large organisations can benefit from having a waste audit and setting targets to reduce your e-waste. You'll want to include secure-erase processes in your policy, to protect private and confidential information. {"\n"}Where possible, consume less. When you do have to upgrade your devices and appliances, make it a priority to recycle your old equipment in a responsible manner. Explore your options and find an accredited recycler or one whose process conforms to strict standards. By ensuring your e-waste is recycled carefully, you'll support a healthier planet.
+      </NativeBaseText>
+    </>
   )
 };
 
 const GuideContent4 = () => {
   return (
-    <NativeBaseText fontWeight="400">
-    Bengaluru (also called Bangalore) is the center of India's high-tech
-    industry. The city is also known for its parks and nightlife.
-    </NativeBaseText>
+    <>
+      <NativeBaseText fontWeight="400">
+      Before any of your electronic equipment can be recycled or donated from general practice, it is important to remove all data from the device. Data can be related to personal details of patients or information about the business of your practice.{"\n"}{"\n"} Failure to remove data from these electronic devices, particularly sensitive information, breaches patient information privacy and security.{"\n"}{"\n"} If electronic media such as hard drives, USB flash drives, CDs and DVDs are not properly erased, patient data and general business data may be used for many purposes, such as appropriating and creating bank accounts and loans, or purchasing medicines and medical insurance.7 Patient-identifiable information can be a prime target for identify theft.{"\n"}{"\n"} Sold and donated computers have been found in secondary markets, such as auctions, still containing personal information.8 This data can be more valuable than the electronic equipment it is stored on. Further, it can be relatively easy for those who are technically capable to recover such information from any electronic media.  
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}Don't just delete files {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      It is not sufficient to delete files and documents on your computer, or to drag and drop files into the recycle bin. The data after deletion still reside on the hard drive even though you cannot access them directly. It is very important to take further measures to ensure this data are securely erased.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}Implement effecitve security {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      As a first step, it is important for your practice to put effective computer and information security measures in place. The RACGP Computer and information security standards and accompanying workbook provide essential guidance on establishing good information security practices and help to ‘future proof’ your practice’s computer and information systems.
+      </NativeBaseText>
+      <Heading size="lg" ml="-1">
+      {"\n"}Securely erase data or destroy equipment {"\n"}
+      </Heading>
+      <NativeBaseText fontWeight="400">
+      Higher levels of sanitisation include wiping the disk, using a secure erase tool or destroying the equipment.{"\n"}{"\n"} A secure erase tool overwrites the data multiple times so that they cannot be accessed forensically. There are numerous free secure erase tools available on the internet. Since such tools and software are constantly being updated and new products released, we recommend you seek advice from your computer supplier or an IT professional regarding the most suitable secure erase software for your electronic device.{"\n"}{"\n"} The secure erasing of data should extend to any back-up media, such as tapes, and any media that are used to store or transfer practice data, including hard drives. 
+      </NativeBaseText>
+    </>
   )
 };
 
@@ -127,11 +255,11 @@ const Guide = ({route}) => {
   } else if (id === 1) {
     RenderGuideContent = GuideContent1;
   } else if (id === 2) {
-    RenderGuideContent = GuideContent1;
+    RenderGuideContent = GuideContent2;
   } else if (id === 3) {
-    RenderGuideContent = GuideContent1;
+    RenderGuideContent = GuideContent3;
   } else if (id === 4) {
-    RenderGuideContent = GuideContent1;
+    RenderGuideContent = GuideContent4;
   } else {
     RenderGuideContent = "Error: This guide has no content, please visit another gudie"
   }
@@ -144,7 +272,8 @@ const Guide = ({route}) => {
    * 
    * Do the same thing for guide cards, but no need for GuideContent
    */
-    return (<Box alignItems="center">
+    return (
+      <ScrollView contentContainerStyle={[styles.container]}>
         <Box>
             <AspectRatio w="100%" ratio={16 / 9}>
             <Image
@@ -155,11 +284,15 @@ const Guide = ({route}) => {
         </Box>
         <Stack p="4" space={3}>
             <Stack space={2}>
-            <Heading size="md" ml="-1">
+            <Heading size="xl" ml="-1">
                 {guideDetails[id].title}
             </Heading>
             <HStack alignItems="center" space={4} justifyContent="space-between">
               <HStack alignItems="center" fontSize={10}>
+                  <NativeBaseText italic color="coolGray.800" _dark={{color: "warmGray.200"}}>
+                  Written by {guideDetails[id].author}
+                  </NativeBaseText>
+                  <Spacer />
                   <NativeBaseText
                   color="#708B75"
                   _dark={{
@@ -169,26 +302,20 @@ const Guide = ({route}) => {
                   >
                   {guideDetails[id].date}
                   </NativeBaseText>
-                  <Spacer />
-                  <NativeBaseText color="coolGray.800" _dark={{color: "warmGray.200"}}>
-                  {guideDetails[id].author}
-                  </NativeBaseText>
               </HStack>
             </HStack>
             </Stack>
-            <NativeBaseText fontWeight="400">
-              <RenderGuideContent />
-            </NativeBaseText>
+            <RenderGuideContent />
         </Stack>
-    </Box>);
+    </ScrollView>);
   };
 export default Guide;
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexGrow: 1,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
     },
     title: {
       fontSize: 20,
