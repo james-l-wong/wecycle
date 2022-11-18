@@ -108,7 +108,7 @@ export default function Settings() {
             base: "70%",
           }}
           variant="outline"
-          placeholder="Postcode"
+          placeholder="Current Password"
         />
         <View style={{ marginTop: 10, marginBottom: 10 }}>
           <Input
@@ -117,7 +117,17 @@ export default function Settings() {
               base: "70%",
             }}
             variant="outline"
-            placeholder="Postcode"
+            placeholder="New Password"
+          />
+        </View>
+        <View style={{ marginBottom: 10 }}>
+          <Input
+            size="md"
+            w={{
+              base: "70%",
+            }}
+            variant="outline"
+            placeholder="Confirm New Password"
           />
         </View>
         <Button
