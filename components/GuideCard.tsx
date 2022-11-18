@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+// import Image0 from '../assets/guide_images/
+
 import {
   AspectRatio,
   Center,
@@ -35,10 +37,13 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
  * static elements? Since there is no backend/way or need to add in props?
  */
 
- const guideDetails = [
+const image0 = require('../assets/images/ewaste-dump.jpg');
+
+const guideDetails = [
   {
     title: "The e-waste problem",
     image: {
+      source:{image0},
       uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRz64GdTI0Tlic4IsdJLtbQAeAPMshW7TEmw&usqp=CAU",
       alt: 'alt-text'
     },
@@ -52,7 +57,7 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
       uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text 1',
+    summary: 'Unfortunately, e-waste is not always disposed of in an environmentally friendly way and at times has been dumped as hazardous waste.',
     author: 'Joe Blow',
     date: '15/11/2022',
   },
@@ -62,7 +67,7 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
       uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text 2',
+    summary: 'We can treat e-waste similar to othere types of waste by applying the principles of reduce, reuse and recycle.',
     author: 'Jane Doe',
     date: '16/11/2022',
   },
@@ -72,7 +77,7 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
       uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'another summary text 3',
+    summary: 'In this article, we will go through 4 different tips and 4 different reasons on responsibly dealing with e-waste.',
     author: 'John Smith',
     date: '17/11/2022',
   },
@@ -82,7 +87,7 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
       uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       alt: 'alt-text'
     },
-    summary: 'summary text 4',
+    summary: 'Before any of your electronic equipment can be recycled or donated from general practice, it is important to remove all data from the device.',
     author: 'Bob Brown',
     date: '18/11/2022',
   },

@@ -12,17 +12,64 @@ import SearchBar from '../components/SearchBar';
  * TODO: Once guide card is finalised, send to James
  */
 
+ const guideTitles = [
+  "The e-waste problem",
+  "What's being done about e-waste",
+  "How to deal with e-waste",
+  "More tips and information for recycling e-waste",
+  "How to securely remove data before disposing of e-waste",
+];
 
+const RenderGuides = (indexes) => {
+  if (indexes.length === 0) {
+    return null;
+  } else if (indexes.length === 1) {
+    return (<>
+      <GuideCard id={indexes[0]} />
+    </>)
+  } else if (indexes.length === 2) {
+    return (<>
+      <GuideCard id={indexes[0]} />
+      <GuideCard id={indexes[1]} />
+    </>)
+  } else if (indexes.length === 3) {
+    return (<>
+      <GuideCard id={indexes[0]} />
+      <GuideCard id={indexes[1]} />
+      <GuideCard id={indexes[2]} />
+    </>)
+  } else if (indexes.length === 4) {
+    return (<>
+      <GuideCard id={indexes[0]} />
+      <GuideCard id={indexes[1]} />
+      <GuideCard id={indexes[2]} />
+      <GuideCard id={indexes[3]} />
+    </>)
+  } else if (indexes.length === 5 ) {
+    return (<>
+      <GuideCard id={indexes[0]} />
+      <GuideCard id={indexes[1]} />
+      <GuideCard id={indexes[2]} />
+      <GuideCard id={indexes[3]} />
+      <GuideCard id={indexes[4]} />
+    </>)
+  }
+};
 
 export default function TabTwoScreen() {
   const [searchPhrase, setSearchPhrase] = useState(null);
 
   const search = (input) => {
+    if (!input) {
+      console.log(input)
+      return -1; // return an array instead
+    }
+
     console.log(input);
   }
 
   useEffect(() => {
-    search(searchPhrase)
+    const indexes = search(searchPhrase);
   }, [searchPhrase])
 
   return (
