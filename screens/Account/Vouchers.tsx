@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View } from '../../components/Themed';
 import PointsDisplay from "../../components/PointsDisplay";
-import TabButtons from "../../components/TabButtons";
+import TabButtons from "../../components/Tabbuttons";
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Alert, VStack, HStack } from "native-base";
 

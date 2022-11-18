@@ -12,7 +12,7 @@ export default function DeviceTile({ title }: { title: string }) {
         console.log("title");
         title !== "Add"
           ? navigation.navigate("DeviceDetails", { test: title })
-          : navigation.navigate("UploadDevice")
+          : navigation.navigate("Upload")
       }}
           >
       <View style={[title === "Add" ? styles.addContainer : styles.container]}>
