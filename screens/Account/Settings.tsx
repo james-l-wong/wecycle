@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import { View } from "../../components/Themed";
-import { Button, Text } from "native-base";
+import { Button, Input, Text } from "native-base";
 
 export default function Settings() {
   const [counter, setCounter] = useState(12);
@@ -10,23 +10,122 @@ export default function Settings() {
     <View style={styles.container}>
       <Text style={styles.title}>Settings</Text>
       <Text style={styles.textNormal}>Accessibility</Text>
-      <Text style={{ marginTop: 10, marginLeft: 20, fontSize: 25 }}>
-        {counter}
-      </Text>
-      <View>
-        <Button
-          style={styles.fontButton}
-          onPress={() => setCounter(counter + 1)}
-        >
-          +
-        </Button>
-        <Button
-          style={styles.fontButton}
-          onPress={() => {
-            if (counter > 1) setCounter(counter - 1);
+
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          marginTop: 10,
+          width: 180,
+        }}
+      >
+        <Text
+          style={{
+            marginTop: 10,
+            marginLeft: 20,
+            fontSize: 25,
+            lineHeight: 28,
+            marginRight: 5,
           }}
         >
-          -
+          {counter}pts
+        </Text>
+        <View style={{ display: "flex", flexDirection: "row" }}>
+          <Button
+            style={styles.fontButton}
+            onPress={() => setCounter(counter + 1)}
+          >
+            +
+          </Button>
+          <Button
+            style={styles.fontButton}
+            onPress={() => {
+              if (counter > 1) setCounter(counter - 1);
+            }}
+          >
+            -
+          </Button>
+        </View>
+      </View>
+      <Text
+        style={{
+          fontSize: 16,
+          marginLeft: 20,
+          marginTop: 20,
+        }}
+      >
+        Update Postcode
+      </Text>
+
+      <View
+        style={{
+          marginLeft: 20,
+          marginTop: 10,
+          display: "flex",
+          flexDirection: "row",
+          height: 50,
+        }}
+      >
+        <Input
+          size="md"
+          w={{
+            base: "70%",
+          }}
+          variant="outline"
+          placeholder="Postcode"
+        />
+        <Button
+          size="sm"
+          style={{ marginLeft: 10, backgroundColor: "#8E8E90" }}
+          // style={styles.postcodeButton}
+        >
+          Update
+        </Button>
+      </View>
+
+      <Text
+        style={{
+          fontSize: 16,
+          marginLeft: 20,
+          marginTop: 20,
+        }}
+      >
+        Reset Password
+      </Text>
+
+      <View
+        style={{
+          marginLeft: 20,
+          marginTop: 10,
+          display: "flex",
+          flexDirection: "column",
+          height: 50,
+        }}
+      >
+        <Input
+          size="md"
+          w={{
+            base: "70%",
+          }}
+          variant="outline"
+          placeholder="Postcode"
+        />
+        <View style={{ marginTop: 10, marginBottom: 10 }}>
+          <Input
+            size="md"
+            w={{
+              base: "70%",
+            }}
+            variant="outline"
+            placeholder="Postcode"
+          />
+        </View>
+        <Button
+          size="md"
+          style={{ backgroundColor: "#8E8E90", width: 150 }}
+          // style={styles.postcodeButton}
+        >
+          Reset
         </Button>
       </View>
     </View>
@@ -53,5 +152,13 @@ const styles = StyleSheet.create({
   fontButton: {
     width: 40,
     height: 40,
+    margin: 5,
+    backgroundColor: "#8E8E90",
+  },
+  postcodeButton: {
+    width: 45,
+    height: 45,
+    margin: 5,
+    backgroundColor: "#8E8E90",
   },
 });
