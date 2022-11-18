@@ -27,6 +27,7 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Home from "../assets/icons/Home";
+import ServiceList from "../screens/Services"
 import Devices from "../screens/Devices";
 import Guides from "../screens/Guides";
 import Services from "../screens/Services";
@@ -83,6 +84,11 @@ function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
+      /> 
+      <Stack.Screen
+        name="ServiceList"
+        component={ServiceList}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="Settings"
