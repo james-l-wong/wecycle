@@ -9,7 +9,7 @@ import MapView from 'react-native-maps';
 import ModalCustom from "../components/ModalCustom"
 import { Modal, VStack, HStack, Radio} from "native-base";
 import { Input, Stack, Box, Center, NativeBaseProvider, extendTheme, FormControl, Checkbox, Button} from "native-base";
-import TabButtons from "../components/TabButtons"
+import TabButtons from "../components/Tabbuttons"
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import Call from "../assets/icons/Call"
 import Email from "../assets/icons/Email"
