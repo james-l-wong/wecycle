@@ -47,11 +47,11 @@ const RenderGuides = (indexes) => {
     </>)
   } else if (indexes.length === 5 ) {
     return (<>
-      <GuideCard id={indexes[0]} />
-      <GuideCard id={indexes[1]} />
-      <GuideCard id={indexes[2]} />
-      <GuideCard id={indexes[3]} />
-      <GuideCard id={indexes[4]} />
+      <GuideCard id={0} />
+      <GuideCard id={1} />
+      <GuideCard id={2} />
+      <GuideCard id={3} />
+      <GuideCard id={4} />
     </>)
   }
 };

@@ -73,7 +73,7 @@ const guideDetails = [
   {
     title: "More tips and information for recycling e-waste",
     image: {
-      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsenp_OUYuDl2EbN7sPV94y9_YOkpOjRYgLw&usqp=CAU",
+      uri: "https://ecocycle.com.au/wp-content/uploads/2019/11/Why-do-we-recycle-e-waste.jpg",
       alt: 'alt-text'
     },
     summary: 'In this article, we will go through 4 different tips and 4 different reasons on responsibly dealing with e-waste.',
