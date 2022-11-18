@@ -65,11 +65,11 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       {/** add in login navigator (Stack) as a Stack.Screen */}
-      {/* <Stack.Screen
+      <Stack.Screen
         name="login_flow"
         component={LoginNavigator}
         options={{ headerShown: false }}
-      /> */}
+      />
       <Stack.Screen
         name="Home"
         component={BottomTabNavigator}

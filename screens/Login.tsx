@@ -27,6 +27,15 @@ export default function TabTwoScreen({ navigation }) {
       >
         Login
       </Button>
+      <View style={{flexDirection: "row", justifyContent: "center", paddingTop: 20}}>
+        <Text>Don't have an account? </Text>
+        <Text
+          style={{color: "#758A77", textDecorationLine: "underline"}}
+          onPress={()=>navigation.navigate("Register")}
+        >
+          Register
+        </Text>
+      </View>
     </View>
   );
 }

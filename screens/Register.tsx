@@ -35,10 +35,19 @@ export default function TabTwoScreen({ navigation }) {
       />
       <Button
         style={{ marginTop: 40, backgroundColor: "#758A77", width: 275 }}
-        onPress={() => navigation.navigate("Root")}
+        onPress={() => navigation.navigate("Home")}
       >
         Register
       </Button>
+      <View style={{flexDirection: "row", justifyContent: "center", paddingTop: 20}}>
+        <Text>Have an account? </Text>
+        <Text
+          style={{color: "#758A77", textDecorationLine: "underline"}}
+          onPress={()=>navigation.navigate("Login")}
+        >
+          Login
+        </Text>
+      </View>
     </View>
   );
 }
