@@ -158,7 +158,7 @@ export default function TabTwoScreen() {
              Reddit {'                 '}5km
             </Text>
             <StarRating
-        rating= "5"
+        rating= "3"
         color = "#FFFFFF"
         />
          
@@ -214,7 +214,7 @@ export default function TabTwoScreen() {
              Collection {'             '} 2 KM
             </Text>
             <StarRating
-        rating= "3"
+        rating= "4"
         color = "#FFFFFF"
         />
          
