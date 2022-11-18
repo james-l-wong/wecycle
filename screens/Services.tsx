@@ -15,6 +15,11 @@ import Call from "../assets/icons/Call"
 import Email from "../assets/icons/Email"
 import Website from "../assets/icons/Webstime"
 import Save from "../assets/icons/save"
+
+const s = ()=> {
+  console.log("Hi")
+}
+
 export default function TabTwoScreen() {
   const containerStyle = {
     width: '400px',
@@ -31,6 +36,7 @@ export default function TabTwoScreen() {
   })
 
   const [map, setMap] = React.useState(null)
+  const [rating, setRating] = useState(0);
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
@@ -128,6 +134,7 @@ export default function TabTwoScreen() {
             <StarRating
         rating= "5"
         color = "#FFFFFF"
+        onChange={ setRating}
         />
          
         </View>
@@ -166,6 +173,7 @@ export default function TabTwoScreen() {
             <StarRating
         rating= "3"
         color = "#FFFFFF"
+        onChange={setRating}
         />
          
         </View>
@@ -205,6 +213,7 @@ export default function TabTwoScreen() {
             <StarRating
         rating= "4"
         color = "#FFFFFF"
+        onChange={setRating}
         />
          
         </View>
