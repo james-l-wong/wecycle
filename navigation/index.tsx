@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -187,7 +187,7 @@ function BottomTabNavigator() {
         component={Devices}
         options={({ navigation }: RootTabScreenProps<"TabTwo">) => ({
           title: "Devices",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="important-devices" size={25} color={color} />,
           headerStyle: {
             height: 110,
           },
