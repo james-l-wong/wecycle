@@ -21,48 +21,56 @@ export default function TabOneScreen({
   // const height = Dimensions.get("window").height;
   // const navigation = useNavigation();
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView
+      contentContainerStyle={(styles.container, { backgroundColor: "#F0F0F0" })}
+    >
       <PointsDisplay points={points} vouchers={vouchers} />
-      <Text
-        accessible={true}
-        accessibilityLabel="Pending Devices"
-        style={styles.title}
-      >
-        Pending Devices
-      </Text>
-      <Carousel
-        style={{ marginLeft: 20, width: width, overflow: "visible" }}
-        loop={false}
-        width={145}
-        height={150}
-        data={["Add", "iPhone", "fridge"]}
-        scrollAnimationDuration={500}
-        onSnapToItem={(index) => {}}
-        renderItem={(array) => <DeviceTile title={array.item} />}
-      />
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <View>
         <Text
           accessible={true}
-          accessibilityLabel="Guides"
+          accessibilityLabel="Pending Devices"
           style={styles.title}
         >
-          Featured Guide
+          Pending Devices
         </Text>
-        {/* <Pressable onPress={() => navigation.navigate("TabThree")}>
+        <Carousel
+          style={{
+            marginLeft: 20,
+            width: width,
+            overflow: "visible",
+          }}
+          loop={false}
+          width={145}
+          height={150}
+          data={["Add", "iPhone", "fridge"]}
+          scrollAnimationDuration={500}
+          onSnapToItem={(index) => {}}
+          renderItem={(array) => <DeviceTile title={array.item} />}
+        />
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text
+            accessible={true}
+            accessibilityLabel="Guides"
+            style={styles.title}
+          >
+            Featured Guide
+          </Text>
+          {/* <Pressable onPress={() => navigation.navigate("TabThree")}>
           <Text style={{ textDecorationLine: true, marginRight: 20 }}>
-            See All
+          See All
           </Text>
         </Pressable> */}
-      </View>
-      <View accessible={true} accessibilityLabel="Featured Guide">
-        <GuideCard id={2} />
+        </View>
+        <View accessible={true} accessibilityLabel="Featured Guide">
+          <GuideCard id={2} />
+        </View>
       </View>
     </ScrollView>
   );
@@ -72,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: 1000,
-    backgroundColor: "red",
+    // backgroundColor: "red",
     // alignItems: "center",
     // justifyContent: "center",
   },

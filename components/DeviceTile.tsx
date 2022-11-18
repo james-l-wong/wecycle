@@ -43,7 +43,6 @@ export default function DeviceTile({ title }: { title: string }) {
           alignItems: "center",
           width: 130,
           marginTop: 5,
-          backgroundColor: "#F0F0F0",
         }}
       >
         <Text>{title}</Text>
