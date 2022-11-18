@@ -208,7 +208,7 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
-              <VStack>
+              <VStack style={{zIndex: 6}}>
                 <Badge // bg="red.400"
                   colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
@@ -225,6 +225,7 @@ function BottomTabNavigator() {
                   borderRadius: 20,
                   padding: 8,
                   overflow: "hidden",
+                  zIndex: 5
                 })}
               >
                 <FontAwesome
@@ -285,7 +286,7 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
-              <VStack>
+              <VStack style={{zIndex: 6}}>
                 <Badge // bg="red.400"
                   colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
@@ -302,6 +303,7 @@ function BottomTabNavigator() {
                   borderRadius: 20,
                   padding: 8,
                   overflow: "hidden",
+                  zIndex: 5
                 })}
               >
                 <FontAwesome
@@ -362,7 +364,7 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
-              <VStack>
+              <VStack style={{zIndex: 6}}>
                 <Badge // bg="red.400"
                   colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
@@ -379,6 +381,7 @@ function BottomTabNavigator() {
                   borderRadius: 20,
                   padding: 8,
                   overflow: "hidden",
+                  zIndex: 5
                 })}
               >
                 <FontAwesome
@@ -441,7 +444,7 @@ function BottomTabNavigator() {
                 flexDirection: "row",
               }}
             >
-              <VStack>
+              <VStack style={{zIndex: 6}}>
                 <Badge // bg="red.400"
                   colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
@@ -458,6 +461,7 @@ function BottomTabNavigator() {
                   borderRadius: 20,
                   padding: 8,
                   overflow: "hidden",
+                  zIndex: 5
                 })}
               >
                 <FontAwesome
