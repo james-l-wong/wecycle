@@ -1,9 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
+import { Text, Container, Flex } from "native-base";
 import { flexbox } from "native-base/lib/typescript/theme/styled-system";
-import { StyleSheet, Image } from "react-native";
-import { Text, View } from "../components/Themed";
+import React from "react";
+import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import MapView from "react-native-maps";
+import { View } from "../components/Themed";
 
 export default function TabTwoScreen({ route }: { route: any }) {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Device Information</Text>
@@ -73,6 +77,65 @@ export default function TabTwoScreen({ route }: { route: any }) {
         )}
       </View>
       <Text style={styles.title}>Service Selected</Text>
+      <TouchableOpacity
+        accessible={true}
+        accessibilityLabel="Tap me for details"
+        style={styles.notif}
+        onPress={() => navigation.navigate("Details")}
+      >
+        <Flex direction="row">
+          <Image
+            source={require("../assets/images/council_logo.png")}
+            style={styles.img}
+          ></Image>
+          <Container>
+            <Flex direction="column">
+              <Text
+                accessible={true}
+                accessibilityLabel="Parramatta Council E-waste Collection Event"
+                fontSize="sm"
+                margin={1}
+                marginBottom={0}
+              >
+                Parramatta city council E-waste collection event
+              </Text>
+              <View style={{ backgroundColor: "#EFEFEF" }}>
+                <Flex direction="row" justifyContent="space-between">
+                  <Text
+                    accessible={true}
+                    accessibilityLabel="In 2 days"
+                    marginLeft={1}
+                    fontSize="2xs"
+                    color="#8A8A8A"
+                  >
+                    In 2 days
+                  </Text>
+                  <Text
+                    accessible={true}
+                    accessibilityLabel="4 km away"
+                    fontSize="2xs"
+                    color="#8A8A8A"
+                  >
+                    4km away
+                  </Text>
+                </Flex>
+              </View>
+            </Flex>
+          </Container>
+        </Flex>
+      </TouchableOpacity>
+      <View style={styles.mapContainer}>
+        <MapView
+          provider={undefined}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          style={styles.map}
+        />
+      </View>
       {/* <View
         style={styles.separator}
         lightColor="#eee"
@@ -110,5 +173,33 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: "80%",
+  },
+  notif: {
+    borderRadius: 12,
+    backgroundColor: "#EFEFEF",
+    marginTop: 5,
+    padding: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    // paddingVertical: 5,
+    // paddingLeft: 5
+  },
+  img: {
+    width: 50,
+    height: 50,
+    margin: 5,
+  },
+  mapContainer: {
+    ...StyleSheet.absoluteFillObject,
+    height: 390,
+    width: 415,
+    marginTop: 370,
+    borderRadius: 15,
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    margin: 20,
   },
 });
