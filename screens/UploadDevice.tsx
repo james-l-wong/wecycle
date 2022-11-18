@@ -1,5 +1,6 @@
 import { StyleSheet, ScrollView , Image, TouchableOpacity} from 'react-native';
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -13,6 +14,7 @@ export default function TabTwoScreen() {
   const year1 = "< 1 year"
   const year2 = "< 3 years"
   const year3 = "> 3 years"
+  const navigation = useNavigation();
 
   return (
 
@@ -29,15 +31,23 @@ export default function TabTwoScreen() {
           }}
           source={require("../assets/images/PhotoUpload.png")}
         />
-        <Button borderRadius="15">+</Button>
-        <Box marginLeft="1.5" backgroundColor = "#708B75" minH = "89px" minWidth= "181px" maxH = "89px" maxWidth= "181px" borderRadius="12" > <Text style={styles.texts} > Place your device on a flat surface and take a picture of it from 15 cms </Text> </Box>
+        {/* <Button borderRadius="15">+</Button> */}
+        <TouchableOpacity
+        accessible={true}
+        accessibilityLabel="Upload Picture Button"
+        onPress={()=>setShowList(true)}
+        style={[{borderRadius: 15, height: 40, width: 25, justifyContent: "center", alignItems: "center"},{backgroundColor: "#708B75"}]}>
+        <Text style={{color:  "white" , fontWeight: "bold", fontSize: 18}}>+</Text>
+      </TouchableOpacity>
+        <Box marginLeft="1.5" paddingLeft= "1" backgroundColor = "#708B75" minH = "89px" minWidth= "181px" maxH = "89px" maxWidth= "181px" borderRadius="12" > <Text style={styles.texts} > Place your device on a flat surface and take a picture of it from 15 cms </Text> </Box>
       </View>
       <Box height = "100%" style = {styles2.container}>  
       <FormControl isInvalid w="90%" maxW="390px" marginBottom= "30px">
       
         
       <FormControl.Label>What model is your device</FormControl.Label>
-       <Input variant="rounded" placeholder="Round" />
+       <Input accessible={true}
+        accessibilityLabel="Enter Model Device" variant="rounded" placeholder="IPhone14, Samsung Galaxy S7" />
    
     </FormControl>
     <FormControl   maxW="350px" marginBottom= "30px">
@@ -48,13 +58,16 @@ export default function TabTwoScreen() {
       md: "row"
     }} space={3} alignItems="flex-start">
       
-        <Checkbox value="danger" colorScheme="info" >
+        <Checkbox accessible={true}
+        accessibilityLabel="Device is less than 1 year old" value="danger" colorScheme="info" >
          {year1}
         </Checkbox>
-        <Checkbox value="info" colorScheme="info" >
+        <Checkbox  accessible={true}
+        accessibilityLabel="Device is less than 3 years old" value="info" colorScheme="info" >
         {year2}
         </Checkbox>
-        <Checkbox value="orange" colorScheme="info" >
+        <Checkbox accessible={true}
+        accessibilityLabel="Device is greater than 3 years old"  value="orange" colorScheme="info" >
         {year3}
         </Checkbox>
       </Stack>
@@ -64,7 +77,8 @@ export default function TabTwoScreen() {
       
         
       <FormControl.Label>Please describe the condition of your device below</FormControl.Label>
-       <Input variant="rounded" placeholder="Cracked screen, Poor Battery Health, Scratches on back, Camera in Excellent Condition " />
+       <Input accessible={true}
+        accessibilityLabel="Enter the condition of your device" variant="rounded" placeholder="Cracked screen, Poor Battery Health, Scratches on back, Camera in Excellent Condition " />
    
     </FormControl>
     <Center>
@@ -92,13 +106,17 @@ export default function TabTwoScreen() {
       md: "row"
     }} space={3} alignItems="flex-start">
       
-        <Checkbox value="danger" colorScheme="info" >
+        <Checkbox accessible={true}
+        accessibilityLabel="Is you device a phone"  value="danger" colorScheme="info" >
+
           Phone
         </Checkbox>
-        <Checkbox value="info" colorScheme="info" >
+        <Checkbox accessible={true}
+        accessibilityLabel="Is your device a laptop" value="info" colorScheme="info" >
           Laptop
         </Checkbox>
-        <Checkbox value="orange" colorScheme="info" >
+        <Checkbox accessible={true}
+        accessibilityLabel="Is your device neither a laptop or phone"  value="orange" colorScheme="info" >
           Other
         </Checkbox>
       </Stack>
@@ -110,7 +128,9 @@ export default function TabTwoScreen() {
     <Center flex={1} px="3" marginTop= "30px">
                 {/* <Button size={"lg"} borderRadius="10" onPress={() => { document.location.href = "Services.tsx"; }}> Submit </Button> */}
                 <TouchableOpacity
-        onPress={()=>setShowList(true)}
+                accessible={true}
+                accessibilityLabel="Submit button for device details" 
+        onPress={()=>navigation.navigate("ServiceList")}
         style={[{borderRadius: 15, height: 50, width: 150, justifyContent: "center", alignItems: "center"},{backgroundColor: "#708B75"}]}>
         <Text style={{color:  "white" , fontWeight: "bold", fontSize: 18}}>Submit</Text>
       </TouchableOpacity>

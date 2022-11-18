@@ -26,6 +26,7 @@ export type RootStackParamList = {
   Barcode: undefined;
   Settings: undefined;
   UploadDevice: undefined;
+  ServiceList: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
