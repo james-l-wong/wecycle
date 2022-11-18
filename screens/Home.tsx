@@ -18,7 +18,7 @@ export default function TabOneScreen({
   vouchers: number;
 }) {
   const width = Dimensions.get("window").width;
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <PointsDisplay points={points} vouchers={vouchers} />
@@ -54,11 +54,11 @@ export default function TabOneScreen({
         >
           Featured Guide
         </Text>
-        <Pressable onPress={() => navigation.navigate("TabThree")}>
+        {/* <Pressable onPress={() => navigation.navigate("TabThree")}>
           <Text style={{ textDecorationLine: true, marginRight: 20 }}>
             See All
           </Text>
-        </Pressable>
+        </Pressable> */}
       </View>
       <View accessible={true} accessibilityLabel="Featured Guide">
         <GuideCard />
