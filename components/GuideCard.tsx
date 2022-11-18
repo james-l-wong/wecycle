@@ -37,7 +37,6 @@ import { background } from 'native-base/lib/typescript/theme/styled-system';
  * static elements? Since there is no backend/way or need to add in props?
  */
 
-const image0 = require('../assets/images/ewaste-dump.jpg');
 
 const guideDetails = [
   {
@@ -94,7 +93,6 @@ const guideDetails = [
 
 const GuideCard = ({id}: {id: number}) => {
   const navigation = useNavigation();
-  console.log(id)
 
     return (
     <Pressable
@@ -156,6 +154,10 @@ const GuideCard = ({id}: {id: number}) => {
               </NativeBaseText>
               <HStack alignItems="center" space={4} justifyContent="space-between">
                 <HStack alignItems="center" fontSize={10}>
+                  <NativeBaseText italic color="coolGray.800" _dark={{color: "warmGray.200"}}>
+                  Written by {guideDetails[id].author}
+                  </NativeBaseText>
+                  <Spacer />
                   <NativeBaseText
                     color="#708B75"
                     _dark={{
@@ -165,10 +167,6 @@ const GuideCard = ({id}: {id: number}) => {
                     style={styles.smallTextMargin}
                   >
                     {guideDetails[id].date}
-                  </NativeBaseText>
-                  <Spacer />
-                  <NativeBaseText color="coolGray.800" _dark={{color: "warmGray.200"}}>
-                  {guideDetails[id].author}
                   </NativeBaseText>
                 </HStack>
               </HStack>

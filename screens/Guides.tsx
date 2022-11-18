@@ -75,7 +75,6 @@ export default function TabTwoScreen() {
   return (
     <ScrollView contentContainerStyle={[styles.container]}>
       <SearchBar setText={newText => setSearchPhrase(newText)}/>
-      {/* <EditScreenInfo path="/screens/TabTwoScreen.tsx" /> */}
       <GuideCard id={0} />
       <GuideCard id={1} />
       <GuideCard id={2} />
@@ -86,11 +85,6 @@ export default function TabTwoScreen() {
 }
 
 const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
   container: {
     flexGrow: 1,
     alignItems: 'center',
