@@ -210,7 +210,7 @@ function BottomTabNavigator() {
             >
               <VStack>
                 <Badge // bg="red.400"
-                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
                   }}>
                   2
@@ -287,7 +287,7 @@ function BottomTabNavigator() {
             >
               <VStack>
                 <Badge // bg="red.400"
-                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
                   }}>
                   2
@@ -364,7 +364,7 @@ function BottomTabNavigator() {
             >
               <VStack>
                 <Badge // bg="red.400"
-                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
                   }}>
                   2
@@ -443,7 +443,7 @@ function BottomTabNavigator() {
             >
               <VStack>
                 <Badge // bg="red.400"
-                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={1} variant="solid" alignSelf="flex-end" _text={{
+                  colorScheme="warning" rounded="full" mb={-8} mr={-12} zIndex={10} variant="solid" alignSelf="flex-end" _text={{
                     fontSize: 11
                   }}>
                   2
