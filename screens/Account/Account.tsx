@@ -18,7 +18,7 @@ function ProfileImage() {
       accessibilityLabel="profile image"
       style={styles.circle}>
       <FontAwesome
-        style={{marginTop: 20}}
+        style={{ marginTop: 20 }}
         name="user"
         size={50}
       />
@@ -31,8 +31,8 @@ function ProfileImage() {
   )
 }
 
-export default function Account({route, navigation}) {
-  const {points, setPoints, redeemList, setRedeemList, voucherList, setVoucherList} = route?.params || {};
+export default function Account({ route, navigation }) {
+  const { points, setPoints, redeemList, setRedeemList, voucherList, setVoucherList } = route?.params || {};
   const [ps, setPs] = useState(points);
   const [vList, setVList] = useState(voucherList);
   const [rList, setRList] = useState(redeemList);
@@ -48,7 +48,7 @@ export default function Account({route, navigation}) {
       <MenuButton
         label={"Redeem Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers", {
+        pressFn={() => navigation.navigate("Vouchers", {
           points: ps,
           setPoints: setPs,
           onRedeem: true,
@@ -61,7 +61,7 @@ export default function Account({route, navigation}) {
       <MenuButton
         label={"My Vouchers"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Vouchers", {
+        pressFn={() => navigation.navigate("Vouchers", {
           points: ps,
           setPoints: setPs,
           onRedeem: false,
@@ -74,32 +74,32 @@ export default function Account({route, navigation}) {
       <MenuButton
         label={"Settings"}
         colour={"#708B75"}
-        pressFn={()=>navigation.navigate("Settings")}
+        pressFn={() => navigation.navigate("Settings")}
       />
-      <View style={{height: "15%"}}></View>
+      <View style={{ height: "15%" }}></View>
       <MenuButton
         label={"Log Out"}
         colour={"#D9D9D9"}
-        pressFn={()=>navigation.navigate(" ")}
+        pressFn={() => navigation.navigate(" ")}
       />
     </View>
   );
 
   return (
-      <View style={styles.container}>
-        <PointsDisplay points={ps} vouchers={vList.length} />
-        <View style={styles.info}>
-          <ProfileImage/>
-          <View style={styles.infotext}>
-            <Text style={styles.title}>Jane Doe</Text>
-            <Text style={{fontSize:16}}>jane.doe@email.com</Text>
-          </View>
+    <View style={styles.container}>
+      <PointsDisplay points={ps} vouchers={vList.length} />
+      <View style={styles.info}>
+        <ProfileImage />
+        <View style={styles.infotext}>
+          <Text style={styles.title}>Jane Doe</Text>
+          <Text style={{ fontSize: 16 }}>jane.doe@email.com</Text>
         </View>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <Buttons/>
-        {/* Use a light status bar on iOS to account for the black space above the modal */}
-        <StatusBar style={Platform.OS === 'ios' ? 'light' : 'light'/*: 'auto'*/} />
       </View>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <Buttons />
+      {/* Use a light status bar on iOS to account for the black space above the modal */}
+      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'light'/*: 'auto'*/} />
+    </View >
   );
 }
 

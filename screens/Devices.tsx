@@ -1,14 +1,57 @@
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {
+  Text,
+  Flex,
+  Container,
+  Spacer,
+  Progress,
+  Box
+} from 'native-base';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
+import DeviceTile from '../components/DeviceTile';
 
-export default function TabTwoScreen() {
+export default function TabTwoScreen(navigation) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Devices</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/iTabTwoScreen.tsx" />
+    <View style={{ height: '100%' }}>
+      <View style={styles.body}>
+        <Text marginTop={5} marginBottom={4} fontSize="md">View information about all devices</Text>
+        {/* TODO: change to navigate to pending devices */}
+        <TouchableOpacity
+          accessible={true}
+          accessibilityLabel="Tap me for details on this device"
+          onPress={() => navigation.navigate("Guides")}>
+          <Flex direction='row'>
+            <DeviceTile title="iPhone" />
+            <Container marginLeft={7}>
+              <Text
+                accessible={true}
+                accessibilityLabel="Company: Apple">
+                Company: Apple
+              </Text>
+              <Text
+                accessible={true}
+                accessibilityLabel="Model: iPhone 14">
+                Model: iPhone 14
+              </Text>
+              <Text
+                accessible={true}
+                accessibilityLabel="Age: 2 years 4 months">
+                Age: 2 years 4 months
+              </Text>
+              <Text
+                accessible={true}
+                accessibilityLabel="Condition: Fully functional">
+                Condition: Fully functional
+              </Text>
+              <Box w="100%" maxW="400">
+                <Progress value={60} mx="4" colorScheme="emerald" />
+              </Box>
+            </Container>
+          </Flex>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -19,13 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  body: {
+    width: '90%',
+    alignSelf: 'center'
   },
 });

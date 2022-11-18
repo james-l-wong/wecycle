@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -34,11 +34,13 @@ import Services from "../screens/Services";
 import UploadDevice from "../screens/UploadDevice"
 import { LoginNavigator } from "./LoginNavigator";
 import { DeviceNavigator } from "./DeviceNavigator";
+import Notifications from "../screens/Notifications";
 import Vouchers from "../screens/Account/Vouchers";
 import Barcode from "../screens/Account/Barcode";
 import Settings from "../screens/Account/Settings";
 import DeviceDetails from "../screens/DeviceDetails";
 import { ColesLogo, WoolLogo, OfficeLogo, MyerLogo } from "../screens/Account/LogoImages";
+import Details from "../screens/Details";
 import Guide from "../screens/Guide";
 
 export default function Navigation({
@@ -85,7 +87,7 @@ function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
-      /> 
+      />
       <Stack.Screen
         name="ServiceList"
         component={ServiceList}
@@ -113,6 +115,14 @@ function RootNavigator() {
       <Stack.Group>
         <Stack.Screen name="Account" component={Account} />
       </Stack.Group>
+      <Stack.Group>
+        <Stack.Screen name="Notifications" component={Notifications} />
+      </Stack.Group>
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{ headerShown: true }}
+      />
       {/* <Stack.Group>
         <Stack.Screen name="Vouchers" component={Vouchers} />
       </Stack.Group>
@@ -198,7 +208,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -255,7 +265,7 @@ function BottomTabNavigator() {
         component={Devices}
         options={({ navigation }: RootTabScreenProps<"TabTwo">) => ({
           title: "Devices",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="important-devices" size={25} color={color} />,
           headerStyle: {
             height: 110,
           },
@@ -267,7 +277,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -336,7 +346,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
@@ -407,7 +417,7 @@ function BottomTabNavigator() {
               }}
             >
               <Pressable
-                onPress={() => navigation.navigate("Account")}
+                onPress={() => navigation.navigate("Notifications")}
                 style={({ pressed }) => ({
                   opacity: pressed ? 0.5 : 1,
                   marginRight: 15,
